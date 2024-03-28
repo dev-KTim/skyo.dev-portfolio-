@@ -1,0 +1,610 @@
+
+
+
+
+
+
+
+/* !REMINDER! I will seperate every css to its own section for better order. And with that it's easier to look at the code for you :)*/
+
+
+
+
+
+
+
+
+.container {
+    display: flex;
+    width: 500px;
+    margin-top: -35rem;
+    padding: 30px;
+    margin-left: 38%;
+}
+
+.container p {
+    text-align: center;
+    vertical-align: middle;
+    display: table-cell;
+    font-size: 38px;
+    line-height: 39px;
+    font-family: 'DM Mono' , monospace;
+}
+
+*,
+*:before,
+*:after {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    border: 5px solid rgb(255, 255, 255);
+    position: absolute;
+    transform: translate(-50%,-50%);
+    border-radius: 15px;
+    overflow: hidden;
+    display: inline-block;
+}
+
+.container:before {
+    content: "";
+    height: 700px;
+    width: 700px;
+    position: absolute;
+    background: conic-gradient(
+        #6552b9,
+        #2a2dd1,
+        #8400ff,
+        #9e27ff,
+        #3925f3,
+        #8f57a8,
+        #c300ff,
+        #2a2dd1,
+        #6552b9
+    );
+    left: -23%;
+    top: -90%;
+    animation: spin 2.5s infinite linear;
+    z-index: -1;
+}
+
+@keyframes spin {
+    100%{
+        transform: rotate(-360deg);
+    }
+}
+.container:after {
+    content: "";
+    position: absolute;
+    background-color: #141414;
+    height: 89%;
+    width: 93%;
+    top: 5.5%;
+    left: 3.5%;
+    color: #fff;
+    display: grid;
+    place-items: center;
+    border-radius: 10px;
+    z-index: -1;
+    display: inline-block;
+}
+
+.main-content img {
+    position: relative;
+}
+
+.low-poly-svg {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 700px;
+    margin-bottom: 427px;
+}
+
+.low-poly-svg img {
+    position: absolute;
+    width: 100%;
+    box-shadow: 0 0 300px #623EBB;
+    margin-top: 200px;
+    margin-bottom: 200px;
+    z-index: 1;
+}
+
+.msg-box-outer {
+    width: 1600px;
+    height: 800px;
+    position: absolute;
+    background-color: rgb(19, 19, 19);
+    z-index: 1;
+    box-shadow: inset 0 0 40px 5px #623EBB, 0 0 40px 5px #944db1;
+    opacity: 0.85
+  }
+
+.msg-box-inner {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 1450px;
+    height: 0px;
+    z-index: 2;
+}
+
+.msg-box-inner p {
+    display: flex;
+    z-index: 2;
+}
+
+.msg-from {
+    background-color: #8f57a8;
+    margin-bottom: 20px;
+    border-radius: 17px;
+    padding: 10px;
+    display: flex;
+    font-family: 'Pixelify Sans';
+    color: #fff;
+    max-width: 900px;
+    font-size: 28px;
+    line-height: 33px;
+    z-index: 2;
+    margin-right: auto;
+    transition: 0.3s ease-in-out;
+}
+
+.msg-from:hover {
+    box-shadow: 0px 0px 30px #8f57a8;
+    transform:scale(1.1);
+}
+
+.msg-by-me {
+    background-color:#7266da;
+    border-radius: 17px;
+    padding: 8px;
+    display: flex;
+    text-align: right;
+    font-family: 'Pixelify Sans';
+    color: #fff;
+    max-width: 800px;
+    font-size: 28px;
+    line-height: 33px;
+    z-index: 2;
+    margin-left: auto;
+    transition: 0.3s ease-in-out;
+}
+
+.msg-by-me:hover {
+    box-shadow: 0px 0px 30px #7266da;
+    transform: scale(1.1);
+}
+
+.stacked-peaks {
+    display: flex;
+    z-index: 1;
+    height: 670px;
+}
+
+.stacked-peaks img {
+    position: absolute;
+    width: 100%;
+}
+
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+
+.card-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+	background-color: #362354;
+	border-radius: 5px;
+	box-shadow: 0px 0px 50px 5px rgba(7, 7, 7, 0.75);
+	color: #B3B8CD;
+	width: 500px;
+	max-width: 100%;
+	text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 200px;
+    margin-bottom: auto;
+    padding-bottom: 30px;
+    border-radius: 30px;
+}
+
+.card-container h3 {
+    font-family: 'Pixelify Sans';
+    font-size: 48px;
+}
+
+.card-container h6 {
+    font-family: 'Pixelify Sans';
+    font-size: 20px;
+}
+
+.card-container p {
+    font-family: 'Pixelify Sans';
+    font-size: 15px;
+    padding-top: 10px;
+}
+
+button.primary {
+	background-color: #8F57A8;
+	border: 1px solid #8F57A8;
+	border-radius: 3px;
+	color: #231E39;
+	font-family: 'Pixelify Sans';
+	font-weight: 500;
+	padding: 10px 25px;
+}
+
+button.primary.ghost {
+	background-color: transparent;
+	color: #8F57A8;
+}
+
+.left-from-card {
+    height: 700px;
+    width: 600px;
+    position: absolute;
+    z-index: 2;
+    margin-top: 30px;
+    margin-left: 42px;
+    background-color:#362354;
+    opacity: 0.7;
+    border-radius: 40px;
+}
+
+.right-from-card {
+    height: 700px;
+    width: 600px;
+    position: absolute;
+    z-index: 2;
+    margin-top: 30px;
+    margin-left: 1142px;
+    background-color:#362354;
+    opacity: 0.7;
+    border-radius: 40px;
+}
+
+.flex-left-card {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    height: 640px;
+    margin: 30px;
+}
+
+.flex-right-card {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    height: 640px;
+    margin: 30px;
+}
+
+.flex-left-card span {
+    color: #fff;
+    font-size: 36px;
+    font-family: 'Pixelify Sans';
+    margin-bottom: 8px;
+    margin-top: 22px;
+}
+
+.flex-right-card span {
+    color: #fff;
+    font-size: 36px;
+    font-family: 'Pixelify Sans';
+    margin-bottom: 8px;
+    margin-top: 22px;
+}
+
+.flex-left-card img {
+    width: 50px;
+    position: relative;
+    margin-top: 14px;
+    margin-bottom: 14px;
+    margin-left: 10px;
+}
+
+.flex-right-card img {
+    width: 50px;
+    position: relative;
+    margin-top: 14px;
+    margin-bottom: 14px;
+    margin-left: 10px;
+}
+
+
+.container-icon-text {
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    border: 5px solid #8F57A8;
+    box-shadow: 0px 5px 20px #c9c9c9;
+    background-color: #322055;
+    border-radius: 20px;
+    margin-left: 15px;
+    margin-right: 15px;
+    margin-top: 15px;
+    margin-bottom: 4px;
+    transition: 0.3s ease-in-out;
+}
+
+.container-icon-text:hover{
+    transform: scale(1.1);
+}
+
+.text-next-to-icon{
+    flex: 1;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.text-next-to-icon p {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    color: #fff;
+    font-size: 36px;
+    line-height: 37px;
+    margin-top: auto;
+    margin-bottom: auto;
+    font-family: 'IBM Plex Mono';
+}
+
+.text-skillbase {
+    margin-top: 5px;
+    font-size: 20px;
+    color: #6e6e6e;
+    transition: 0.15s;
+}
+
+.text-skillbase:hover {
+    color: #8F57A8;
+    font-weight: bolder;
+}
+
+.blob-scene {
+    z-index: 0;
+    margin-top: 100px;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+}
+
+.blob-scene-pic {
+    margin-top: -150px;
+    width: 100%;
+    z-index: 0;
+    position: relative;
+}
+
+.span-right {
+    border: 6px solid #943adf;
+    box-shadow: 0px 0px 20px #943adf;
+    max-width: 700px;
+    max-height: 300px;
+    margin-top: 100px;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    color: #fff;
+    margin-left: 700px;
+    border-radius: 20px;
+    background-color: #732FAC;
+    padding: 20px;
+    font-family: 'IBM Plex Mono';
+    font-size: 30px;
+    line-height: 35px;
+    transition: 0.5s;
+}
+
+.span-left {
+    border: 6px solid #943adf;
+    box-shadow: 0px 0px 20px #943adf;
+    max-width: 700px;
+    margin-top: 300px;
+    margin-right: 800px;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    color: #fff;
+    border-radius: 20px;
+    background-color: #732FAC;
+    padding: 20px;
+    font-family: 'IBM Plex Mono';
+    font-size: 30px;
+    line-height: 35px;
+    transition: 0.5s;
+}
+
+.span-right:hover {
+    transform: scale(1.05);
+}
+
+.span-left:hover {
+    transform: scale(1.05);
+}
+
+.span-right h1:hover {
+    transform: scale(1.1);
+    color: #d8a3e6;
+    font-weight: bolder;
+}
+
+.span-left h1:hover {
+    transform: scale(1.1);
+    color: #d8a3e6;
+    font-weight: bolder;
+}
+
+.span-right h1 {
+    font-family: 'IBM Plex Mono';
+    font-size: 30px;
+    line-height: 35px;
+    text-align: center;
+    transition: 0.35s;
+}
+
+.span-right p {
+    font-family: 'IBM Plex Mono';
+    font-size: 24px;
+    line-height: 35px;
+    text-align: center;
+}
+
+.span-left h1 {
+    font-family: 'IBM Plex Mono';
+    font-size: 30px;
+    line-height: 35px;
+    text-align: center;
+    transition: 0.35s;
+}
+
+.span-left p {
+    font-family: 'IBM Plex Mono';
+    font-size: 24px;
+    line-height: 35px;
+    text-align: center;
+}
+
+.contact-section {
+    height: 700px;
+    margin-top: 200px;
+    background: rgb(135,35,153);
+    background: linear-gradient(0deg, rgba(135,35,153,1) 0%, rgba(126,44,156,1) 10%, rgba(115,22,156,1) 26%, rgba(78,5,122,1) 52%, rgba(20,20,20,1) 100%);
+}
+
+hr.rounded {
+    border-top: 8px solid #ffffff;
+    border-radius: 5px;
+    width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+.contact-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.contact-section h1 {
+    color: #fff;
+    font-family: 'Pixelify Sans';
+    font-size: 72px;
+}
+
+.foot-content {
+    width: 1700px;
+    min-height: 500px;
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.cnt-email {
+    padding-top: 5px;
+}
+
+.cnt-email p {
+    font-family: 'IBM Plex Mono';
+    color: #fff;
+    text-align: center;
+    line-height: 55px;
+    font-size: 24px;
+}
+
+.cnt-application {
+    background-color:#732FAC;
+    padding: 9px;
+    border-radius: 20px;
+    box-shadow: 0 0 50px #8636c7;
+    transition: ease 0.4s;
+}
+
+.cnt-application:hover {
+    transform: scale(1.15);
+    color: #bebebe;
+}
+
+.foot-content span {
+    padding: 9px;
+    border-radius: 70px;
+    box-shadow: 0 0 50px #9c48e0;
+    transition: ease 0.4s;
+    width: 1620px;
+    height: 310px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.github-icon {
+    width: 97px;
+    margin-bottom: 40px;
+}
+
+.discord-icon {
+    width: 110px;
+    margin-bottom: 27px;
+    margin-top: -10px;
+}
+
+.bottom-info {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+
+.bottom-info p {
+    color: #fff;
+    font-family: 'IBM Plex Mono';
+    font-size: 30px;
+}
+
+.bottom-left {
+    position: absolute;
+    margin-left: -400px;
+}
+
+.bottom-right {
+    position: absolute;
+    margin-right: -400px;
+}
+
+.contrainer-feet {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.build-version {
+    position: relative;
+    z-index: 3;
+    color: #fff;
+    margin-top: 14px;
+    font-size: 24px;
+    transition: 0.2s ease-in-out;
+}
+
+.build-version:hover {
+    color: #d1d1d1;
+    transform: scale(1.1);
+}
+
+window.scrollTo {
+    top: 500;
+}

@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <Title>Tim's Portfolio</Title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&family=IBM+Plex+Mono:wght@400;600&family=Pixelify+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font: 'IBM Plex Mono' -->
+    <!-- Font: 'Pxelify Sans' -->
+    <!-- Font: 'Courier Prime' -->
+
+    <link rel="stylesheet" href="styles/general.css">
+    <link rel="stylesheet" href="styles/top-section.css">
+    <link rel="stylesheet" href="styles/Responsive-Sidebar.css">
+    <link rel="stylesheet" href="styles/main-content.css"
+
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+    <script src="https://unpkg.com/typeit@8.7.1/dist/index.umd.js"></script>
+    </style>
+</head>
+
+
+
+<body>
+<!-- BACKGROUND STUFF -->
+  <div class="top-section">
+    <img src="Design SVGS/layered-peaks.svg">
+  </div>
+
+  <!-- CONTENT OF SIDEBAR -->
+    <div class="sidebar">
+        <div class="top">
+          <div class="logo">
+            <i class='bx bx-expand-horizontal'></i>
+            <span>skyo.dev's Portfolio</span>
+          </div>
+                <i class="bx bx-menu" id="btn"></i>
+        </div>
+        <div class="user">
+          <img src="imgs/Me-portrait.jpg" alt="me" class="user-img">
+          <div>
+            <p class="bold">Tim Kolesnikov</p>
+          </div>
+        </div>
+        <ul>
+          <li>
+            <a href="#about">
+              <i class='bx bx-check-double'></i>
+              <span class="nav-item">About</span>
+            </a>
+              <span class="tooltip">About</span>
+          </li>
+          <li>
+            <a href="#me">
+              <i class='bx bxs-user-check'></i>
+              <span class="nav-item">Me</span>
+            </a>
+              <span class="tooltip">Me</span>
+          </li>
+          <li>
+            <a href="#progression">
+              <i class='bx bxs-chevrons-up'></i>
+              <span class="nav-item">Progression</span>
+            </a>
+              <span class="tooltip">Progression</span>
+          </li>
+          <li>
+            <a href="#contact">
+              <i class='bx bxs-user-account'></i>
+              <span class="nav-item">Contact</span>
+            </a>
+              <span class="tooltip">Contact</span>
+          </li>
+        </ul>
+        <span class="nav-item-bottom">Made with Vanilla HTML,CSS and JavaScript</span>
+    </div>
+
+    <!-- TYPE ANIMATION -->
+    <div class="container" id="ticket">
+      <p id="type-animation"></p>
+    </div>
+
+
+    <!-- GENERAL CONTENT  -->
+    <div class="main-content">
+    
+    <!-- About Section -->
+    <section id="about">
+      <div class="low-poly-svg">
+        <img src="Design SVGS/low-poly-grid.svg">
+        <div class="msg-box-outer">
+        </div>
+          <div class="msg-box-inner">
+            <p class="msg-from">
+              Why did you make this website?
+            </p>
+            <p class="msg-by-me">
+              I wanna show my skills in web-development and even though im working on a C# project
+            </p>
+            <p class="msg-from">
+              Is it your First coding experience with this website?
+            </p>
+            <p class="msg-by-me">
+              Actually no. I made many exercises to practice on and I have a decent Youtube-Copy in my Github &#058&#041. By the way, I started with Python a while ago but I find C# more interesting.
+            </p>
+            <p class="msg-from">
+              What is your dream you want to achieve by now?
+            </p>
+            <p class="msg-by-me">
+              I wanna start an apprenticeship in your company and it is my dream to finish it with much success.
+            </p>
+            <p class="msg-from">
+              What other skills do you have?
+            </p>
+            <p class="msg-by-me">
+              I will explain it to you in the “progression” tab when you click in the menu.
+            </p>
+          </div>
+      </div>
+    </section>
+
+<!-- Me Section -->
+    <section id="me"></section>
+        <div class="stacked-peaks">
+          <img src="Design SVGS/stacked-peaks.png">
+            <div class="card-container">
+              <h3>Tim Kolesnikov</h3>
+              <h6>living in GÜNZBURG</h6>
+              <p>PC-Enthusiast and a Front-End Developer with much passion <strong>&#60;learning&#61;&#34;C#/Unity&#34;&#62;</strong></p>
+            </div>
+
+          <div class="left-from-card">
+            <div class="flex-left-card">
+              <span>script languages</span>
+
+              <div class="container-icon-text">
+                <img class="icon-in-card" src="icons/html.png"></img>
+                <div class="text-next-to-icon">
+                  <p>HTML/CSS</p>
+                  <div class="text-skillbase">
+                    Competent -> Proficient
+                  </div>
+                </div>  
+              </div>
+
+
+              <span style="margin-top: 34px; line-height: 40px;">programming languages/library</span>
+
+              <div class="container-icon-text">
+                <img class="icon-in-card" src="icons/c-sharp.png"></img>
+                <div class="text-next-to-icon">
+                  <p>C#/-Unity</p>
+                  <div class="text-skillbase">
+                    Advanced Beginner
+                  </div>
+                </div>  
+              </div>
+
+              <div class="container-icon-text">
+                <img class="icon-in-card" src="icons/javascript.png"></img>
+                <div class="text-next-to-icon">
+                  <p>JavaScript</p>
+                  <div class="text-skillbase">
+                    Novice
+                  </div>
+                </div>  
+              </div>
+
+              <div class="container-icon-text">
+                <img class="icon-in-card" src="icons/react.png"></img>
+                <div class="text-next-to-icon">
+                  <p>React</p>
+                  <div class="text-skillbase">
+                    Novice
+                  </div>
+                </div>  
+              </div>
+
+            </div>
+          </div>
+          <div class="right-from-card">
+            <div class="flex-right-card">
+              <span>Software-Experience</span>
+
+              <div class="container-icon-text">
+                <img style="border-radius: 10px;" class="icon-in-card" src="icons/cubase.jpg"></img>
+                <div class="text-next-to-icon">
+                  <p>Cubase</p>
+                  <div class="text-skillbase">
+                    Master
+                  </div>
+                </div>  
+              </div>
+
+              <div class="container-icon-text">
+                <img class="icon-in-card" src="icons/visual studio.png"></img>
+                <div class="text-next-to-icon">
+                  <p>VS/VS Code</p>
+                  <div class="text-skillbase">
+                    Competent
+                  </div>
+                </div>  
+              </div>
+
+              <div class="container-icon-text">
+                <img class="icon-in-card" src="icons/adobe.png"></img>
+                <div class="text-next-to-icon">
+                  <p>Adobe Programs</p>
+                  <div class="text-skillbase">
+                    Competent -> Proficient
+                  </div>
+                </div>  
+              </div>
+
+              <div class="container-icon-text">
+                <img class="icon-in-card" src="icons/blender.png"></img>
+                <div class="text-next-to-icon">
+                  <p>Blender</p>
+                  <div class="text-skillbase">
+                    Advanced Beginner
+                  </div>
+                </div>  
+              </div>
+              
+              <div class="container-icon-text">
+                <img class="icon-in-card" src="icons/ms-office.png"></img>
+                <div class="text-next-to-icon">
+                  <p>MS Office</p>
+                  <div class="text-skillbase">
+                    Expert
+                  </div>
+                </div>  
+              </div>
+            </div>
+          </div>
+        </div>
+    </section>
+<!-- END OF ME SECTION -->
+
+<!-- Start of Progression Section -->
+    <section id="progression">
+      <div class="blob-scene">
+
+        <!-- RIGHT SECTION -->
+        <span class="span-right">
+          <h1>When it began..</h1>
+          <p>Found my Programming Passion by modding games and their files. I wanted to know more about the subject.</p>
+        </span>
+        <span style="margin-top: 500px;" class="span-right">
+          <h1>Writing first code..</h1>
+          <p>I started with python and through learning, especially through a lot of tutorials and talking to mates in English I improved my English a lot</p>
+        </span>
+        <!-- END -->
+
+        <!-- LEFT SECTION -->
+        <span class="span-left">
+          <h1>Improving..</h1>
+          <p>I started with music production and thus abruptly expanded my IT and programming skills, as well as my ability to deal with errors and topics in a time-intensive manner. </p>
+        </span>
+        <span style="margin-top: 700px;" class="span-left">
+          <h1>New try..</h1>
+          <p>Despite not securing an apprenticeship, I've been studying HTML/CSS and learning JavaScript on the side to expand my skills, while also working full-time to demonstrate my dedication and motivation despite limited free time.</p>
+        </span>
+        <span style="margin-top: 1110px; margin-left: auto; margin-right: auto; max-width: 1000px;" class="span-left">
+          <h1>You need an employee?..</h1>
+          <p>I am the ideal addition to your company because my passion for IT is my main driving force and I have proven with my full-time work that I can take responsibility, determination and motivation. My calm, patient manner combined with my cheerful character and strong logical and technical understanding make me a valuable team member.</p>
+        </span>
+        <img class="blob-scene-pic" src="Design SVGS/blob-scene.png">
+        </div>
+      </section>
+        <!-- CNTACT SECTION -->
+      <section id="contact">
+        <div class="contact-section">
+          <hr class="rounded">
+            <div class="header-contact">
+              <h1>Contact
+              </h1>
+            </div>
+          <div class="foot-content">
+            <div class="cnt-email">
+              <p>E-Mail</p>
+              <p 
+              class="cnt-application">application@skyo.dev
+              </p>
+            </div>
+            <span class="bottom-info">
+              <div class="bottom-left">
+                <img class="github-icon" src="icons/githubicon.png">
+                <p class="p-bottom_left">
+                  dev-KTim
+                </p>
+              </div>
+              <div class="bottom-right">
+                <img class="discord-icon" src="icons/discordicon.png">
+                <p style="margin-top: 12px;"  class="p-bottom_right">
+                  skyoon05
+                </p> 
+              </div>
+            </span>
+          <div class="container-feet">
+            <p class="build-version"> Build Version: V1.05 | 15/3/23</p>
+          </div>
+          </div>
+        </div>
+      </section>
+  </div>
+</body>
+
+    <!-- JAVASCRIPT CONTENT -->
+
+  <script>
+
+function scrollToAnchor(anchorID, offset) {
+    var target = document.querySelector(anchorID);
+    if (target) {
+        var targetPosition = target.getBoundingClientRect().top + window.pageYOffset;
+        window.scrollTo({
+            top: targetPosition - offset,
+            behavior: "smooth"
+        });
+    }
+}
+//OFFSET FUNCTION (copy of 4)
+document.querySelectorAll('a[href^="#about"]'). //about section
+forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        var href = this.getAttribute('href');
+        scrollToAnchor(href, -230); //offset for anchor
+    });
+});
+
+document.querySelectorAll('a[href^="#me"]'). //me section
+forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        var href = this.getAttribute('href');
+        scrollToAnchor(href, 80); //offset for anchor
+    });
+});
+
+document.querySelectorAll('a[href^="#progression"]'). //progression section
+forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        var href = this.getAttribute('href');
+        scrollToAnchor(href, -60); //offset for anchor
+    });
+});
+
+document.querySelectorAll('a[href^="#contact"]'). //contact section
+forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        var href = this.getAttribute('href');
+        scrollToAnchor(href, -230); //offset for anchor
+    });
+});
+
+
+      // Window 3D-Effect
+       window.addEventListener("mousemove", e => {
+      const ticketElm = document.getElementById("ticket")
+       const { x, y, width, height } = ticketElm.getBoundingClientRect()
+       console.log(ticketElm.getBoundingClientRect())
+       const centerPoint = { x: x + width / 2, y: y + height / 2 }
+       window.addEventListener("mousemove", e => {
+         const degreeX = (e.clientY - centerPoint.y) * 0.025
+         const degreeY = (e.clientX - centerPoint.x) * -0.025
+
+
+         ticketElm.style.transform = `perspective(1000px) rotateX(${degreeX}deg) rotateY(${degreeY}deg)`;
+       })
+     })
+
+      // SidebarActiveJS
+      let btn = document.querySelector('#btn')
+      let sidebar = document.querySelector('.sidebar')
+
+      btn.onclick = function () {
+          sidebar.classList.toggle('active');
+      };
+
+      //Type AnimationJS
+      new TypeIt("#type-animation", {
+        speed: 50,
+        startDelay: 900,
+      })
+        .type("hey, ITim. ", { delay: 100 })
+        .move(-5, { delay: 70 })
+        .type("'m ", { delay: 200 }) 
+        .move(null, { to: "START", instant: true, delay: 300 })
+        .move(1, { delay: 110 })
+        .delete(1)
+        .type("H", { delay: 170 })
+        .pause(200)
+        .move(2, { instant: true })
+        .pause(200)
+        .move(5, { instant: true })
+        .move(6, { delay: 200 })
+        .type(" My dream is ", { delay: 350 })
+        .move(null, { to: "END" })
+        .type("to become a web/software developr ")
+        .move(-2, { delay: 150 })
+        .type("e")
+        .move(null, { to: "END" })
+        .type('<span class="place">in games.</span>', { delay: 400 })
+        .delete(".place", { delay: 800, instant: true })
+        .type('in your company ^^.', {
+          speed: 75,
+        })
+        .go();
+
+
+        window.onload = function() {
+    animateSequence();
+    animateRandom();
+};
+
+function animateSequence() {
+    var a = document.getElementsByClassName('sequence');
+    for (var i = 0; i < a.length; i++) {
+        var $this = a[i];
+        var letter = $this.innerHTML;
+        letter = letter.trim();
+        var str = '';
+        var delay = 100;
+        for (l = 0; l < letter.length; l++) {
+            if (letter[l] != ' ') {
+                str += '<span style="animation-delay:' + delay + 'ms; -moz-animation-delay:' + delay + 'ms; -webkit-animation-delay:' + delay + 'ms; ">' + letter[l] + '</span>';
+                delay += 150;
+            } else
+                str += letter[l];
+        }
+        $this.innerHTML = str;
+    }
+}
+  </script>
+
+</html>

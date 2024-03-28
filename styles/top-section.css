@@ -1,0 +1,9 @@
+.top-section {
+    position: relative; 
+    overflow: hidden;
+}
+
+.top-section img {
+    height: auto;
+    width: 100%;
+}
