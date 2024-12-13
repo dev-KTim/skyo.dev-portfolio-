@@ -87,7 +87,7 @@ forEach(anchor => {
         .move(6, { delay: 200 })
         .type(" My dream is ", { delay: 350 })
         .move(null, { to: "END" })
-        .type("to become a web/software developr ")
+        .type("to become a web or software developr ")
         .move(-2, { delay: 150 })
         .type("e")
         .move(null, { to: "END" })

@@ -189,6 +189,8 @@
     width: 100%;
 }
 
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+
 .card-container {
     position: relative;
     display: flex;
@@ -552,12 +554,6 @@ hr.rounded {
     margin-bottom: 40px;
 }
 
-.discord-icon {
-    width: 110px;
-    margin-bottom: 27px;
-    margin-top: -10px;
-}
-
 .bottom-info {
     display: flex;
     text-align: center;
@@ -573,13 +569,7 @@ hr.rounded {
 }
 
 .bottom-left {
-    position: absolute;
-    margin-left: -400px;
-}
-
-.bottom-right {
-    position: absolute;
-    margin-right: -400px;
+    position: center;
 }
 
 .contrainer-feet {
