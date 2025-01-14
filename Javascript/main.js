@@ -1,4 +1,6 @@
-function scrollToAnchor(anchorID, offset) {
+//scroll to the section method (while clicking a menu button)
+
+function scrollToAnchor(anchorID, offset) { 
     var target = document.querySelector(anchorID);
     if (target) {
         var targetPosition = target.getBoundingClientRect().top + window.pageYOffset;
@@ -8,39 +10,44 @@ function scrollToAnchor(anchorID, offset) {
         });
     }
 }
-document.querySelectorAll('a[href^="#about"]'). //about section
+
+//jump to about section
+document.querySelectorAll('a[href^="#about"]').
 forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
         var href = this.getAttribute('href');
-        scrollToAnchor(href, -230); //offset for anchor
+        scrollToAnchor(href, -230); //offset (for anchor)
     });
 });
 
+//jump to me section
 document.querySelectorAll('a[href^="#me"]'). //me section
 forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
         var href = this.getAttribute('href');
-        scrollToAnchor(href, 80); //offset for anchor
+        scrollToAnchor(href, 80); //offset
     });
 });
 
+//jump to progression section
 document.querySelectorAll('a[href^="#progression"]'). //progression section
 forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
         var href = this.getAttribute('href');
-        scrollToAnchor(href, -60); //offset for anchor
+        scrollToAnchor(href, -60); //offset
     });
 });
 
-document.querySelectorAll('a[href^="#contact"]'). //contact section
+//jump to contact section
+document.querySelectorAll('a[href^="#contact"]').
 forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
         var href = this.getAttribute('href');
-        scrollToAnchor(href, -230); //offset for anchor
+        scrollToAnchor(href, -230); //offset
     });
 });
 
