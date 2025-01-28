@@ -1,6 +1,4 @@
-//scroll to the section method (while clicking a menu button)
-
-function scrollToAnchor(anchorID, offset) { 
+function scrollToAnchor(anchorID, offset) {
     var target = document.querySelector(anchorID);
     if (target) {
         var targetPosition = target.getBoundingClientRect().top + window.pageYOffset;
@@ -10,44 +8,39 @@ function scrollToAnchor(anchorID, offset) {
         });
     }
 }
-
-//jump to about section
-document.querySelectorAll('a[href^="#about"]').
+document.querySelectorAll('a[href^="#about"]'). //about section
 forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
         var href = this.getAttribute('href');
-        scrollToAnchor(href, -230); //offset (for anchor)
+        scrollToAnchor(href, -230); //offset for anchor
     });
 });
 
-//jump to me section
 document.querySelectorAll('a[href^="#me"]'). //me section
 forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
         var href = this.getAttribute('href');
-        scrollToAnchor(href, 80); //offset
+        scrollToAnchor(href, 80); //offset for anchor
     });
 });
 
-//jump to progression section
 document.querySelectorAll('a[href^="#progression"]'). //progression section
 forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
         var href = this.getAttribute('href');
-        scrollToAnchor(href, -60); //offset
+        scrollToAnchor(href, -60); //offset for anchor
     });
 });
 
-//jump to contact section
-document.querySelectorAll('a[href^="#contact"]').
+document.querySelectorAll('a[href^="#contact"]'). //contact section
 forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
         var href = this.getAttribute('href');
-        scrollToAnchor(href, -230); //offset
+        scrollToAnchor(href, -230); //offset for anchor
     });
 });
 
@@ -94,7 +87,7 @@ forEach(anchor => {
         .move(6, { delay: 200 })
         .type(" My dream is ", { delay: 350 })
         .move(null, { to: "END" })
-        .type("to become a web or software developr ")
+        .type("to become a software developr ")
         .move(-2, { delay: 150 })
         .type("e")
         .move(null, { to: "END" })
@@ -129,3 +122,14 @@ function animateSequence() {
         $this.innerHTML = str;
     }
 }
+
+// span href link clicker
+
+const links = document.querySelectorAll(".myLink");
+
+  
+  links.forEach(link => {
+    link.onclick = function() {
+        window.open(link.getAttribute('data-url'), '_blank'); //link is in html because i use multiple links on the 4 spans
+    };
+  });
