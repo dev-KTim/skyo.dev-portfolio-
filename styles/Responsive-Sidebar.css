@@ -9,6 +9,12 @@
     width: 50px;
     border-radius: 100%;
     border: 1px solid #eee;
+    transition: ease-in-out 0.3s;
+}
+
+.user-img:hover {
+    transform: scale(2.6);
+    margin-left: 75px;
 }
 
 .sidebar {

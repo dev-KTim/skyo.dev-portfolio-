@@ -268,13 +268,20 @@
 }
 
 .card-img {
-    border: 6px solid white;
     height: 120px;
     width: 120px;
     position: absolute;
     margin-right: 520px;
     margin-top: -4px;
     border-radius: 40%;
+}
+
+.card-img img{
+    margin-left: -110px;
+    transform: scale(1.15);
+    border-radius: 30%;
+    border: 4px solid #fff;
+    opacity: 100%;
 }
 
 .card-container div p{
