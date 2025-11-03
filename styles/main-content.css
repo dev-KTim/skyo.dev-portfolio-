@@ -388,19 +388,15 @@
 }
 
 .project-container img.aegiscrypt {
-    width: 250px;
+    width: 260px;
+    margin-top: -50px;
     position: relative;
-    margin-top: -50px;
-}
-
-.project-container img.aegiscrypt {
-    width: 250px;
-    margin-top: -50px;
 }
 
 .project-container img.numberguesser {
     width: 360px;
     margin-top: -50px;
+    position: relative;
 }
 
 .numberguesser {
