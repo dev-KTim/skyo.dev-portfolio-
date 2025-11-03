@@ -265,7 +265,7 @@
 }
 
 .card-container div p{
-    font-family: 'IBM Plex Mono';
+    font-family: 'DM Mono' , monospace;
     font-size: 20px;
     text-align: right;
     line-height: 24px;
@@ -317,9 +317,9 @@
     color: #0dffeb;
 }
 
-.container-hobbies b {
-    font-size: 19px;
-    font-family: 'IBM Plex Mono';
+.container-hobbies n {
+    font-size: 20px;
+    font-family: 'DM Mono' , monospace;
     line-height: 28px;
 }
 
@@ -378,7 +378,7 @@
 }
 
 .project-container p {
-    font-family: 'IBM Plex Mono';
+    font-family: 'DM Mono' , monospace;
     color: #fff;
     font-size: 20px;
     width: 500px;
@@ -417,11 +417,11 @@
     color: #fff;
     text-align: center;
     font-size: 20px;
-    font-family: 'IBM Plex Mono';
+    font-family: 'DM Mono' , monospace;
 }
 
 .project-container pre{
-    font-family: 'IBM Plex Mono';
+    font-family: 'DM Mono' , monospace;
     font-size: 14px;
     text-align: left;
     line-height: 22px;

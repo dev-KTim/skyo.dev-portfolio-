@@ -9,7 +9,7 @@
     display: flex;
     width: 50px;
     border-radius: 100%;
-    border: 1px solid #eee;
+    border: 2px solid #2c2c2c;
 }
 
 .sidebar {
@@ -52,16 +52,6 @@
     border-radius: 16px;
     padding-left: 9px;
     padding-right: 9px;
-}
-
-.sidebar #btn:hover {
-    box-shadow: 0px 0px 50px #943adf;
-    background-color: #a32ead;
-    transition: 0.15s;
-}
-
-.sidebar #btn:active {
-    background-color: #75237c;
 }
 
 .sidebar.active #btn {
