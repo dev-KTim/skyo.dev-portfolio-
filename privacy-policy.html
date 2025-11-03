@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Datenschutzerklärung – skyo.dev</title>
+  <style>
+    body{background:#0b0b12;color:#e8e8ff;font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif;margin:0}
+    .wrap{max-width:900px;margin:48px auto;padding:0 16px}
+    h1{color:#b9a6ff}
+    a{color:#8dd3ff}
+    section{background:#161625;border:1px solid #2b2b47;border-radius:16px;padding:20px;margin:18px 0}
+    ul{margin:.2rem 0 .2rem 1.1rem}
+    footer{background:#000;color:#bbb;padding:24px 16px;margin-top:48px}
+    nav a{color:#bbb;text-decoration:none;margin-left:18px}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>Datenschutzerklärung</h1>
+
+    <section>
+      <h2>Kurzfassung</h2>
+      <p>Diese Website setzt <strong>keine Cookies</strong>, verwendet <strong>kein Tracking</strong> und speichert
+         <strong>keine personenbezogenen Daten</strong>. Externe Inhalte werden nicht eingebettet.</p>
+      <p>Zur Darstellung von Schriftarten und Icons werden jedoch Ressourcen von Drittanbietern geladen
+         (z.&nbsp;B. Google Fonts, Boxicons). Dabei kann der Anbieter technisch bedingt Ihre IP-Adresse verarbeiten.
+         Wir setzen keine Statistik- oder Marketingdienste ein.</p>
+    </section>
+
+    <section>
+      <h2>Verantwortlicher</h2>
+      <p><strong>Tim Kolesnikov</strong><br>
+         Siedlerstraße 2a, 89359 Kötz, Deutschland<br>
+         E-Mail: <a href="mailto:application@skyo.dev">application@skyo.dev</a></p>
+    </section>
+
+    <section>
+      <h2>Hosting & Server-Logfiles</h2>
+        <p>
+        Die Website wird bei einem externen Dienstleister betrieben. Dabei können zur Sicherstellung 
+        des technischen Betriebs <strong>Server-Logfiles</strong> anfallen (z. B. IP-Adresse, Datum/Uhrzeit, 
+        aufgerufene Seite, User-Agent). Diese Daten werden ausschließlich zur IT-Sicherheit und 
+        Fehleranalyse verwendet und nicht mit anderen Datenquellen zusammengeführt.
+        </p>
+        <p>
+        <em>Hinweis:</em> Die Verarbeitung dieser Server-Logdaten erfolgt durch den jeweiligen 
+        Hosting-Anbieter (z. B. GitHub Pages oder Ionos). Die Daten werden ausschließlich zur technischen 
+        Bereitstellung und Sicherheit der Website verwendet und nicht zu Werbe- oder Trackingzwecken ausgewertet.
+        </p>
+    </section>
+
+    <section>
+      <h2>Externe Ressourcen</h2>
+      <ul>
+        <li><strong>Google Fonts</strong> (fonts.googleapis.com / fonts.gstatic.com) – Einbindung von Schriftarten</li>
+        <li><strong>Boxicons</strong> (unpkg.com) – Icon-Bibliothek</li>
+        <li><strong>TypeIt</strong> (unpkg.com) – Typing-Animation</li>
+        <li><strong>Material Icons/CSS</strong> (googleapis / code.getmdl.io)</li>
+      </ul>
+      <p>Beim Abruf dieser Ressourcen kann die IP-Adresse an den jeweiligen Anbieter übertragen werden. Es findet darüber hinaus
+         <strong>keine</strong> Auswertung zu Marketing- oder Statistikzwecken statt.</p>
+    </section>
+
+    <section>
+      <h2>Kontakt</h2>
+      <p>Bei einer Kontaktaufnahme per E-Mail werden Ihre Angaben ausschließlich zur Bearbeitung der Anfrage verwendet und anschließend gelöscht,
+         sofern keine gesetzlichen Aufbewahrungspflichten bestehen.</p>
+    </section>
+
+    <section>
+      <h2>Ihre Rechte</h2>
+      <ul>
+        <li>Auskunft, Berichtigung, Löschung, Einschränkung der Verarbeitung</li>
+        <li>Widerspruch gegen Datenverarbeitung</li>
+        <li>Datenübertragbarkeit</li>
+        <li>Beschwerde bei einer Datenschutzaufsichtsbehörde</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Stand</h2>
+      <p>Gültig ab: <span id="ds-stand"></span></p>
+    </section>
+  </div>
+
+  <footer>
+    <div class="wrap" style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px">
+      <div>© <span id="year"></span> Tim Kolesnikov</div>
+      <nav><a href="/impressum.html">Impressum</a></nav>
+    </div>
+  </footer>
+  <script>
+    document.getElementById('year').textContent=new Date().getFullYear();
+    const d=new Date();document.getElementById('ds-stand').textContent=d.toLocaleDateString('de-DE',{year:'numeric',month:'long',day:'2-digit'});
+  </script>
+</body>
+</html>

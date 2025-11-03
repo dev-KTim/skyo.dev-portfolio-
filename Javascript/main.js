@@ -85,15 +85,14 @@ forEach(anchor => {
         .pause(200)
         .move(5, { instant: true })
         .move(6, { delay: 200 })
-        .type(" My dream is ", { delay: 350 })
+        .type(" My target is ", { delay: 350 })
         .move(null, { to: "END" })
         .type("to become a software developr ")
         .move(-2, { delay: 150 })
         .type("e")
         .move(null, { to: "END" })
-        .type('<span class="place">in games.</span>', { delay: 400 })
-        .delete(".place", { delay: 800, instant: true })
-        .type('in your company ^^.', {
+        .type('<span class="place">in your company</span>', { delay: 400 })
+        .type('.', {
           speed: 75,
         })
         .go();
@@ -133,3 +132,5 @@ const links = document.querySelectorAll(".myLink");
         window.open(link.getAttribute('data-url'), '_blank'); //link is in html because i use multiple links on the 4 spans
     };
   });
+
+

@@ -1,275 +1,250 @@
 <!DOCTYPE html>
-<html>
+<html lang="de">
 <head>
-    <Title>Tim's Portfolio</Title>
+  <title>Tim's Portfolio</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&family=IBM+Plex+Mono:wght@400;600&family=Pixelify+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <!-- Font: 'IBM Plex Mono' -->
-    <!-- Font: 'Pxelify Sans' -->
-    <!-- Font: 'Courier Prime' -->
-    <link rel="stylesheet" href="styles/general.css">
-    <link rel="stylesheet" href="styles/top-section.css">
-    <link rel="stylesheet" href="styles/Responsive-Sidebar.css">
-    <link rel="stylesheet" href="styles/main-content.css"
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 
-    <script src="https://unpkg.com/typeit@8.7.1/dist/index.umd.js"></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-    <meta charset="UTF-8">
+  <!-- Styles -->
+  <link rel="stylesheet" href="styles/Privacy.css">
+  <link rel="stylesheet" href="styles/general.css">
+  <link rel="stylesheet" href="styles/top-section.css">
+  <link rel="stylesheet" href="styles/Responsive-Sidebar.css">
+  <link rel="stylesheet" href="styles/main-content.css"> <!-- fehlendes '>' gefixt -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
 </head>
 
-
-
 <body>
-<!-- BACKGROUND STUFF -->
+  <!-- BACKGROUND STUFF -->
   <div class="top-section">
-    <img src="Design SVGS/layered-peaks.svg">
+    <img src="Design SVGS/layered-peaks.svg" alt="">
   </div>
 
-  <!-- CONTENT OF SIDEBAR -->
-    <div class="sidebar">
-        <div class="top">
-          <div class="logo">
-            <i class='bx bx-expand-horizontal'></i>
-            <span>skyo.dev's Portfolio</span>
-          </div>
-                <i class="bx bx-menu" id="btn"></i>
-        </div>
-        <div class="user">
-          <img src="imgs/Me-portait.jpg" alt="me" class="user-img">
-          <div>
-            <p class="bold">Tim Kolesnikov</p>
-          </div>
-        </div>
-        <ul>
-          <li>
-            <a href="#about">
-              <i class='bx bx-check-double'></i>
-              <span class="nav-item">About</span>
-            </a>
-              <span class="tooltip">About</span>
-          </li>
-          <li>
-            <a href="#me">
-              <i class='bx bxs-user-check'></i>
-              <span class="nav-item">Me</span>
-            </a>
-              <span class="tooltip">Me</span>
-          </li>
-          <li>
-            <a href="#progression">
-              <i class='bx bxs-chevrons-up'></i>
-              <span class="nav-item">Progression</span>
-            </a>
-              <span class="tooltip">Progression</span>
-          </li>
-          <li>
-            <a href="#contact">
-              <i class='bx bxs-user-account'></i>
-              <span class="nav-item">Contact</span>
-            </a>
-              <span class="tooltip">Contact</span>
-          </li>
-        </ul>
-        <span class="nav-item-bottom">Made with Vanilla HTML,CSS and JavaScript</span>
+  <!-- SIDEBAR -->
+  <div class="sidebar">
+    <div class="top">
+      <div class="logo">
+        <i class='bx bx-expand-horizontal'></i>
+        <span>skyo.dev's Portfolio</span>
+      </div>
+      <i class="bx bx-menu" id="btn"></i>
     </div>
-
-    <!-- TYPE ANIMATION -->
-    <div class="container" id="ticket">
-      <p id="type-animation"></p>
+    <div class="user">
+      <img src="imgs/Me-portait.jpg" alt="me" class="user-img">
+      <div><p class="bold">Tim Kolesnikov</p></div>
     </div>
+    <ul>
+      <li>
+        <a href="#about"><i class='bx bx-check-double'></i><span class="nav-item">About</span></a>
+        <span class="tooltip">About</span>
+      </li>
+      <li>
+        <a href="#me"><i class='bx bxs-user-check'></i><span class="nav-item">Me</span></a>
+        <span class="tooltip">Me</span>
+      </li>
+      <li>
+        <a href="#progression"><i class='bx bxs-chevrons-up'></i><span class="nav-item">Progression</span></a>
+        <span class="tooltip">Progression</span>
+      </li>
+      <li>
+        <a href="#contact"><i class='bx bxs-user-account'></i><span class="nav-item">Contact</span></a>
+        <span class="tooltip">Contact</span>
+      </li>
+    </ul>
+    <span class="nav-item-bottom">Made with Vanilla HTML, CSS and JavaScript</span>
+  </div>
 
+  <!-- TYPE ANIMATION -->
+  <div class="container" id="ticket">
+    <p id="type-animation"></p>
+  </div>
 
-    <!-- GENERAL CONTENT  -->
-    <div class="main-content">
-    
-    <!-- About Section -->
+  <!-- CONTENT -->
+  <div class="main-content">
+
+    <!-- About -->
     <section id="about">
       <div class="low-poly-svg">
-        <img src="Design SVGS/low-poly-grid.svg">
-        <div class="msg-box-outer">
+        <img src="Design SVGS/low-poly-grid.svg" alt="">
+        <div class="msg-box-outer"></div>
+
+        <div class="msg-box-inner">
+          <p class="msg-from">Why did you make this website?</p>
+          <p class="msg-by-me">I created this website to show what I have learned by myself in HTML/CSS and to share my motivation.</p>
+
+          <p class="msg-from">Is it your first coding experience with this website?</p>
+          <p class="msg-by-me">Not at all! I’ve done many small exercises and projects in HTML/CSS/JS. I started with Python to explore programming and now I focus on C# to build practical apps.</p>
+
+          <p class="msg-from">What is your target at the moment?</p>
+          <p class="msg-by-me">My goal is to join a company as an apprentice, learn from experts, and grow into a valuable team developer.</p>
+
+          <p class="msg-from">Do you have ongoing or completed projects?</p>
+          <p class="msg-by-me">Yes—scroll down to see them or click the GitHub icon in the footer to open my repositories.</p>
         </div>
-          <div class="msg-box-inner">
-            <p class="msg-from">
-              Why did you make this website?
-            </p>
-            <p class="msg-by-me">
-              I created this website to showcase my skills in HTML/CSS and my Motivation too.
-            </p>
-            <p class="msg-from">
-              Is it your first coding experience with this website?
-            </p>
-            <p class="msg-by-me">
-              Not at all! I've completed many exercises and small projects to improve my skills in HTML/CSS/JS. I started learning Python to explore programming concepts, and now I'm focusing on C# to build practical applications.
-            </p>
-            <p class="msg-from">
-              What is your goal at the moment?
-            </p>
-            <p class="msg-by-me">
-              My dream is to join your company as an apprentice, learn from experts, and grow into a valuable team developer.
-            </p>
-            <p class="msg-from">
-              Do you have ongoing or completed projects?
-            </p>
-            <p class="msg-by-me">
-              You can view my projects in the 'Me' section or click on my GitHub link in the footer to explore them directly.
-            </p>
-          </div>
       </div>
     </section>
 
-<!-- Me Section -->
-    <section id="me"></section>
-        <div class="stacked-peaks">
-          <div class="card-container">
-            <h1>Tim K.</h1>
-            <h2>&lt;from class="guenzburg"&gt;&lt;/from&gt;</h2>
-            <div class="card-container-right">
-              <p-head>My Focus..</p-head>
-              <p>19 y/o PC-Enthusiast and I want to become a good Software Developer</p>
-            <div class="card-img">
-              <img src="imgs/Me-portait.jpg">
-            </div>
+    <!-- Me -->
+    <section id="me">
+      <!-- (dein stray 's' entfernt) -->
+      <div class="stacked-peaks">
+        <div class="card-container">
+          <h1>Tim K.</h1>
+          <h2>&lt;from class="guenzburg"&gt;&lt;/from&gt;</h2>
+
+          <div class="card-container-right">
+            <p-head>My Focus..</p-head>
+            <p>19 y/o PC-Enthusiast who wants to become a good software developer.</p>
+            <div class="card-img"><img src="imgs/Me-portait.jpg" alt=""></div>
           </div>
-            <div class="container-hobbies">
-              <hr class="seperation-card-line">
-              <h3>
-                Hobbies
-              </h3>
-              <b>
-                Programming, being outside, Mountainbiking, Music
-              </b>
-              <h3>
-                Soft Skills
-              </h3>
-              <b>
-                I am a very patient, considerate, and positive person who is always skilled at finding solutions and a valuable asset to any team.
-              </b>
-              </h3>
-            </div>
+
+          <div class="container-hobbies">
+            <hr class="seperation-card-line">
+            <h3>Hobbies</h3>
+            <b>Programming, being outside, mountain biking, music</b>
+            <h3>Soft Skills</h3>
+            <b>I’m patient, considerate and positive – good at finding solutions and adding value to any team.</b>
           </div>
-          
-          <div class="project-container">
-
-            <span class="myLink" data-url="https://github.com/dev-KTim/skyo.dev-portfolio-">
-              <h1>Website Portfolio</h1>
-                <div class="code-block">
-                  <pre>
-                    <code>
-                <b>void</b> Main()
-                {
-                    <b>var</b> project = <b>new</b> Project(<b>"Website Portfolio"</b>);
-                    project.SetStatus(<b>"Completed-still get updates"</b>);
-                    project.TechUsed(<b>new string[] 
-                                                                  { "HTML", "CSS", "JavaScript" }</b>);
-                    project.SourceCode(<b>"<a href="https://github.com/dev-KTim">https://github.com/dev-KTim</a>"</b>);
-                }
-                    </code>
-                  </pre>
-                </div>
-            </span>
-
-            <span class="myLink" data-url="https://github.com/dev-KTim/Number-Guesser-cs">
-              <h4>Number-Guesser-cs</h4>
-              <p>
-                A fun program I made with C#.
-              </p>
-              <img src="imgs/numberguesser-cs.png" class="numberguesser">
-            </span>
-
-            <span class="myLink" data-url="https://github.com/dev-KTim/AegisCrypt.FileEncryptor">
-              <h1>AegisCrypt</h1>
-              <p>
-                The CS-FileEncryptor is a WPF-based tool for securely encrypting and decrypting files. Soon I will be program my own algorithm.
-              </p>
-              <img src="imgs/Aegis-Crypt.png" class= "aegiscrypt">
-            </span>
-
-            <span class="myLink" data-url="https://github.com/dev-KTim/YouTube-Copy">
-              <h1>YouTube-Copy</h1>
-              <p>It is the first Project I did with HTML and CSS. It is pretty basic but with the knowledge i got after that i made this website.</p>
-            </span>
-            <p style="font-size: 70px; margin: 0px; padding: 0px; margin-left: 580px; margin-top: 10px;">&uarr; </p>
-            <info>
-              <text>  
-              You can click on one box 
-              and u get directly to my Github Repository:&gt;  
-              </text>
-            </info>
         </div>
 
-        <img src="Design SVGS/stacked-peaks.png">
-      </div>
-<!-- END OF ME SECTION -->
+        <div class="project-container">
+          <span class="myLink" data-url="https://github.com/dev-KTim/skyo.dev-portfolio-">
+            <h1>Website Portfolio</h1>
+            <div class="code-block">
+<pre><code><b>void</b> Main()
+{
+    <b>var</b> project = <b>new</b> Project(<b>"Website Portfolio"</b>);
+    project.SetStatus(<b>"Completed – still gets updates"</b>);
+    project.TechUsed(<b>new string[] { "HTML", "CSS", "JavaScript" }</b>);
+    project.SourceCode(<b>"https://github.com/dev-KTim"</b>);
+}
+</code></pre>
+            </div>
+          </span>
 
-<!-- Progression Section -->
+          <span class="myLink" data-url="https://github.com/dev-KTim/Number-Guesser-cs">
+            <h4>Number-Guesser-cs</h4>
+            <p>A fun program I made with C#.</p>
+            <img src="imgs/numberguesser-cs.png" class="numberguesser" alt="">
+          </span>
+
+          <span class="myLink" data-url="https://github.com/dev-KTim/AegisCrypt.FileEncryptor">
+            <h1>AegisCrypt</h1>
+            <p>WPF tool for encrypting/decrypting files. I plan to implement my own algorithm.</p>
+            <img src="imgs/Aegis-Crypt.png" class="aegiscrypt" alt="">
+          </span>
+
+          <span class="myLink" data-url="https://github.com/dev-KTim/YouTube-Copy">
+            <h1>YouTube-Copy</h1>
+            <p>My first HTML/CSS project. It’s basic, but what I learned there helped me build this site.</p>
+          </span>
+
+          <p style="font-size:70px;margin:0;margin-left:580px;margin-top:10px;">&uarr;</p>
+          <info><text>You can click on a box to open the GitHub repository.</text></info>
+        </div>
+
+        <img src="Design SVGS/stacked-peaks.png" alt="">
+      </div>
+    </section>
+
+    <!-- Progression -->
     <section id="progression">
       <div class="blob-scene">
 
-        <!-- RIGHT SECTION -->
+        <!-- RIGHT -->
         <span class="span-right">
           <h1>When it began..</h1>
-          <p>Found my Passion by modding games and their files. I wanted to know more about the subject.</p>
+          <p>My interest in IT started when I downloaded tools and projects from GitHub. I looked into the source code to understand how software works behind the scenes.</p>
         </span>
-        <span style="margin-top: 500px;" class="span-right">
+
+        <span style="margin-top:500px" class="span-right">
           <h1>Improving..</h1>
-          <p>I started with C# because it is more object-oriented, faster and more GUI-focused and thus improved my programming skills, as well as my ability to deal with errors in a time-intensive manner. It made so much fun.</p>
+          <p>Later I started coding with C# after learning HTML/CSS on my own. I learned to write cleaner code, solve problems and debug errors by myself.</p>
         </span>
-        <!-- END -->
 
-        <!-- LEFT SECTION -->
+        <!-- LEFT -->
         <span class="span-left">
-          <h1>Writing first code..</h1>
-          <p>I started with Python to try it out and quickly made progress. My patience grew, and I became more motivated to learn. My music production and IT/programming tutorials also helped improve my skills.</p>
+          <h1>Writing first Code..</h1>
+          <p>I began with Python just to try it out. Small results motivated me to continue. Tutorials and music production helped me understand logic and creativity.</p>
         </span>
-        <span style="margin-top: 700px;" class="span-left">
-          <h1>New try..</h1>
-          <p>I didn't showcase any projects when I started applying during school. Since then, I've worked on many ongoing projects. To avoid a gap in my CV, I worked full-time back then, but now I'm working part-time.</p>
+
+        <span style="margin-top:700px" class="span-left">
+          <h1>Growing further..</h1>
+          <p>I keep building small projects to improve step by step. Right now I focus on C#, .NET and WPF to create better applications.</p>
         </span>
-        <span style="margin-top: 1110px; margin-left: auto; margin-right: auto; max-width: 1000px;" class="span-left">
+
+        <span style="margin-top:1110px;margin-left:auto;margin-right:auto;max-width:1000px" class="span-left">
           <h1>You need an employee?..</h1>
-          <p>I am the ideal addition to your company because my passion for IT is my main driving force. My calm, patient manner combined with my cheerful character and strong logical and technical understanding make me a valuable team member. I look forward to have the chance to get a interview with you :&#041;</p>
+          <p>I’m motivated to start my career in IT. I’m patient, calm and strong in logical thinking. I enjoy teamwork, solving problems and creating useful software. I’d be happy to talk in person. :)</p>
         </span>
-        <img class="blob-scene-pic" src="Design SVGS/blob-scene.png">
-        </div>
-      </section>
-        <!-- CNTACT SECTION -->
-      <section id="contact">
-        <div class="contact-section">
-          <hr class="rounded">
-            <div class="header-contact">
-              <h1>Contact
-              </h1>
+j
+        <img class="blob-scene-pic" src="Design SVGS/blob-scene.png" alt="">
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact">
+      <div class="contact-section">
+        <hr class="rounded">
+        <div class="header-contact"><h1>Contact</h1></div>
+
+        <div class="foot-content">
+          <div class="cnt-email">
+            <p>E-Mail</p>
+            <p class="cnt-application">application@skyo.dev</p>
+          </div>
+
+          <span class="bottom-info">
+            <div class="bottom-left">
+              <a href="https://github.com/dev-KTim" target="_blank" rel="noopener">
+                <img class="github-icon" src="icons/githubicon.png" alt="GitHub">
+              </a>
+              <p class="p-bottom_left">dev-KTim</p>
             </div>
-          <div class="foot-content">
-            <div class="cnt-email">
-              <p>E-Mail</p>
-              <p 
-              class="cnt-application">application@skyo.dev
-              </p>
-            </div>
-            <span class="bottom-info">
-              <div class="bottom-left">
-                <img class="github-icon" src="icons/githubicon.png">
-                <p class="p-bottom_left">
-                  dev-KTim
-                </p>
-              </div>
-            </span>
+          </span>
+
           <div class="container-feet">
-            <p class="build-version"> Build Version: V1.1.0 | 01/25</p>
-          </div>
+            <p class="build-version">Build Version: V1.2.0 | 11/25</p>
           </div>
         </div>
-      </section>
+      </div>
+    </section>
   </div>
-</div>
-</body>
 
+  <!-- <----------- Footer (Impressum/Datenschutz) ------->
+  <footer class="site-footer">
+    <div class="wrap">
+      <div>© <span id="year"></span> Tim Kolesnikov</div>
+      <nav>
+        <a href="/impressum.html">Impressum</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+        <a href="/privacy-policy.html">Datenschutzerklärung</a>
+      </nav>
+    </div>
+  </footer>
+
+  <!-- <-------------- Datenschutz-/Cookie-Hinweis ---------->
+  <div id="privacy-banner">
+    <div class="wrap">
+      <span>
+        <strong>Datenschutzhinweis:</strong> Diese Website setzt <u>keine Cookies</u>, verwendet <u>kein Tracking</u> und speichert <u>keine personenbezogenen Daten</u>.
+        Schriftarten/Icons werden von externen Anbietern geladen. <a href="/privacy-policy.html">Mehr</a>.
+      </span>
+      <button id="privacy-banner-ok">Okay</button>
+    </div>
+  </div>
+  <script src="https://unpkg.com/typeit@8.7.1/dist/index.umd.js"></script>
   <script src="Javascript/main.js"></script>
-
+  <script src="Javascript/PrivacyBanner.js"></script>
+  <script>
+    // Jahr im Footer
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
 </html>

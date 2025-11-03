@@ -1,0 +1,17 @@
+.site-footer{
+      background:#000; color:#bbb; padding:24px 16px; margin-top:64px
+    }
+    .site-footer .wrap{
+      max-width:1000px; margin:0 auto; display:flex; gap:18px; align-items:center; justify-content:space-between; flex-wrap:wrap
+    }
+    .site-footer a{ color:#bbb; text-decoration:none }
+    #privacy-banner{
+      position:fixed; left:0; right:0; bottom:0; z-index:9999; background:#111; color:#fff; padding:14px 16px;
+      box-shadow:0 -6px 20px rgba(0,0,0,.35); display:none
+    }
+    #privacy-banner .wrap{
+      max-width:1000px; margin:0 auto; display:flex; gap:16px; align-items:center; flex-wrap:wrap
+    }
+    #privacy-banner button{
+      margin-left:auto; background:#6a4bf6; color:#fff; border:none; border-radius:8px; padding:10px 14px; cursor:pointer
+    }
