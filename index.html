@@ -26,6 +26,9 @@
   <div class="top-section">
     <img src="Design SVGS/layered-peaks.svg" alt="">
   </div>
+  <div class="container">
+    <p id="type-animation"></p>
+    </div>
 
   <!-- SIDEBAR -->
   <div class="sidebar">
@@ -61,63 +64,72 @@
     <span class="nav-item-bottom">Made with Vanilla HTML, CSS and JavaScript</span>
   </div>
 
-  <!-- TYPE ANIMATION -->
-  <div class="container" id="ticket">
-    <p id="type-animation"></p>
-  </div>
-
-  <!-- CONTENT -->
-  <div class="main-content">
-
-    <!-- About -->
+  <!-- GENERAL CONTENT  -->
+    <div class="main-content">
+    
+    <!-- About Section -->
     <section id="about">
       <div class="low-poly-svg">
-        <img src="Design SVGS/low-poly-grid.svg" alt="">
-        <div class="msg-box-outer"></div>
-
-        <div class="msg-box-inner">
-          <p class="msg-from">Why did you make this website?</p>
-          <p class="msg-by-me">I created this website to show what I have learned by myself in HTML/CSS and to share my motivation.</p>
-
-          <p class="msg-from">Is it your first coding experience with this website?</p>
-          <p class="msg-by-me">Not at all! I’ve done many small exercises and projects in HTML/CSS/JS. I started with Python to explore programming and now I focus on C# to build practical apps.</p>
-
-          <p class="msg-from">What is your target at the moment?</p>
-          <p class="msg-by-me">My goal is to join a company as an apprentice, learn from experts, and grow into a valuable team developer.</p>
-
-          <p class="msg-from">Do you have ongoing or completed projects?</p>
-          <p class="msg-by-me">Yes—scroll down to see them or click the GitHub icon in the footer to open my repositories.</p>
+        <img src="Design SVGS/low-poly-grid.svg">
+        <div class="msg-box-outer">
         </div>
+          <div class="msg-box-inner">
+            <p class="msg-from">
+              Why did you make this website?
+            </p>
+            <p class="msg-by-me">
+              I created this website to showcase what I have learned in HTML/CSS and my motivation as well.
+            </p>
+            <p class="msg-from">
+              Is it your first coding experience with this website?
+            </p>
+            <p class="msg-by-me">
+              Not at all! I've completed many exercises and small projects to improve my skills in HTML/CSS/JS. I started with Python to explore programming concepts, and now I'm focusing on C# to build practical applications.
+            </p>
+            <p class="msg-from">
+              What is your target at the moment?
+            </p>
+            <p class="msg-by-me">
+              My focus is to join your company as an apprentice, learn from experts, and grow into a valuable team developer.
+            </p>
+            <p class="msg-from">
+              Do you have ongoing or completed projects?
+            </p>
+            <p class="msg-by-me">
+              You can view my projects when you scroll a bit down or click on my GitHub-Icon link in the footer to explore them directly.
+            </p>
+          </div>
       </div>
     </section>
 
-    <!-- Me -->
-    <section id="me">
-      <!-- (dein stray 's' entfernt) -->
-      <div class="stacked-peaks">
-        <div class="card-container">
-          <h1>Tim K.</h1>
-          <h2>&lt;from class="guenzburg"&gt;&lt;/from&gt;</h2>
 
-          <div class="card-container-right">
-            <p-head>My Focus..</p-head>
-            <p>19 y/o PC-Enthusiast who wants to become a good software developer.</p>
-            <div class="card-img"><img src="imgs/Me-portait.jpg" alt=""></div>
-          </div>
+    <!-- ME Section -->
+   <section id="me">
+  <div class="stacked-peaks">
+    <div class="card-container">
+      <h1>Tim K.</h1>
+      <h2>&lt;from class="guenzburg"&gt;&lt;/from&gt;</h2>
 
-          <div class="container-hobbies">
-            <hr class="seperation-card-line">
-            <h3>Hobbies</h3>
-            <b>Programming, being outside, mountain biking, music</b>
-            <h3>Soft Skills</h3>
-            <b>I’m patient, considerate and positive – good at finding solutions and adding value to any team.</b>
-          </div>
-        </div>
+      <div class="card-container-right">
+        <p-head>My Focus..</p-head>
+        <p>19 y/o PC-Enthusiast who wants to become a good software developer.</p>
+        <div class="card-img"><img src="imgs/Me-portait.jpg" alt=""></div>
+      </div>
 
-        <div class="project-container">
-          <span class="myLink" data-url="https://github.com/dev-KTim/skyo.dev-portfolio-">
-            <h1>Website Portfolio</h1>
-            <div class="code-block">
+      <div class="container-hobbies">
+        <hr class="seperation-card-line">
+        <h3>Hobbies</h3>
+        <b>Programming, being outside, mountain biking, music</b>
+        <h3>Soft Skills</h3>
+        <b>I’m patient, considerate and positive – good at finding solutions and adding value to any team.</b>
+      </div>
+    </div>
+
+    <div class="projects-frame">
+      <div class="project-container">
+        <span class="myLink" data-url="https://github.com/dev-KTim/skyo.dev-portfolio-">
+          <h1>Website Portfolio</h1>
+          <div class="code-block">
 <pre><code><b>void</b> Main()
 {
     <b>var</b> project = <b>new</b> Project(<b>"Website Portfolio"</b>);
@@ -126,35 +138,33 @@
     project.SourceCode(<b>"https://github.com/dev-KTim"</b>);
 }
 </code></pre>
-            </div>
-          </span>
+          </div>
+        </span>
 
-          <span class="myLink" data-url="https://github.com/dev-KTim/Number-Guesser-cs">
-            <h4>Number-Guesser-cs</h4>
-            <p>A fun program I made with C#.</p>
-            <img src="imgs/numberguesser-cs.png" class="numberguesser" alt="">
-          </span>
+        <span class="myLink" data-url="https://github.com/dev-KTim/Number-Guesser-cs">
+          <h4>Number-Guesser-cs</h4>
+          <p>A fun program I made with C#.</p>
+          <img src="imgs/numberguesser-cs.png" class="numberguesser" alt="">
+        </span>
 
-          <span class="myLink" data-url="https://github.com/dev-KTim/AegisCrypt.FileEncryptor">
-            <h1>AegisCrypt</h1>
-            <p>WPF tool for encrypting/decrypting files. I plan to implement my own algorithm.</p>
-            <img src="imgs/Aegis-Crypt.png" class="aegiscrypt" alt="">
-          </span>
+        <span class="myLink" data-url="https://github.com/dev-KTim/AegisCrypt.FileEncryptor">
+          <h1>AegisCrypt</h1>
+          <p>WPF tool for encrypting/decrypting files. I plan to implement my own algorithm.</p>
+          <img src="imgs/Aegis-Crypt.png" class="aegiscrypt" alt="">
+        </span>
 
-          <span class="myLink" data-url="https://github.com/dev-KTim/YouTube-Copy">
-            <h1>YouTube-Copy</h1>
-            <p>My first HTML/CSS project. It’s basic, but what I learned there helped me build this site.</p>
-          </span>
-
-          <p style="font-size:70px;margin:0;margin-left:580px;margin-top:10px;">&uarr;</p>
-          <info><text>You can click on a box to open the GitHub repository.</text></info>
-        </div>
-
-        <img src="Design SVGS/stacked-peaks.png" alt="">
+        <span class="myLink" data-url="https://github.com/dev-KTim/YouTube-Copy">
+          <h1>YouTube-Copy</h1>
+          <p>My first HTML/CSS project. It’s basic, but what I learned there helped me build this site.</p>
+        </span>
       </div>
-    </section>
+    </div>
 
-    <!-- Progression -->
+    <img src="Design SVGS/stacked-peaks.png" alt="">
+  </div>
+</section>
+
+    <!-- Progression Section-->
     <section id="progression">
       <div class="blob-scene">
 
@@ -184,12 +194,11 @@
           <h1>You need an employee?..</h1>
           <p>I’m motivated to start my career in IT. I’m patient, calm and strong in logical thinking. I enjoy teamwork, solving problems and creating useful software. I’d be happy to talk in person. :)</p>
         </span>
-j
         <img class="blob-scene-pic" src="Design SVGS/blob-scene.png" alt="">
       </div>
     </section>
 
-    <!-- Contact -->
+    <!-- Contact Section/Policies -->
     <section id="contact">
       <div class="contact-section">
         <hr class="rounded">
@@ -218,7 +227,7 @@ j
     </section>
   </div>
 
-  <!-- <----------- Footer (Impressum/Datenschutz) ------->
+  <!-- <----------- Footer ------->
   <footer class="site-footer">
     <div class="wrap">
       <div>© <span id="year"></span> Tim Kolesnikov</div>
@@ -229,7 +238,7 @@ j
     </div>
   </footer>
 
-  <!-- <-------------- Datenschutz-/Cookie-Hinweis ---------->
+  <!-- <-------------- privacy policy and stuff ---------->
   <div id="privacy-banner">
     <div class="wrap">
       <span>
@@ -243,7 +252,7 @@ j
   <script src="Javascript/main.js"></script>
   <script src="Javascript/PrivacyBanner.js"></script>
   <script>
-    // Jahr im Footer
+
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>
 </body>

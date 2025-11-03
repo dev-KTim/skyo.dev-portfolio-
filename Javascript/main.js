@@ -43,23 +43,6 @@ forEach(anchor => {
         scrollToAnchor(href, -230); //offset for anchor
     });
 });
-
-
-      // Window 3D-Effect
-       window.addEventListener("mousemove", e => {
-      const ticketElm = document.getElementById("ticket")
-       const { x, y, width, height } = ticketElm.getBoundingClientRect()
-       console.log(ticketElm.getBoundingClientRect())
-       const centerPoint = { x: x + width / 2, y: y + height / 2 }
-       window.addEventListener("mousemove", e => {
-         const degreeX = (e.clientY - centerPoint.y) * 0.025
-         const degreeY = (e.clientX - centerPoint.x) * -0.025
-
-
-         ticketElm.style.transform = `perspective(1000px) rotateX(${degreeX}deg) rotateY(${degreeY}deg)`;
-       })
-     })
-
       // SidebarActiveJS
       let btn = document.querySelector('#btn')
       let sidebar = document.querySelector('.sidebar')
@@ -87,11 +70,10 @@ forEach(anchor => {
         .move(6, { delay: 200 })
         .type(" My target is ", { delay: 350 })
         .move(null, { to: "END" })
-        .type("to become a software developr ")
-        .move(-2, { delay: 150 })
+        .type("to become a software developr")
+        .move(-1, { delay: 150 })
         .type("e")
         .move(null, { to: "END" })
-        .type('<span class="place">in your company</span>', { delay: 400 })
         .type('.', {
           speed: 75,
         })
@@ -108,7 +90,7 @@ function animateSequence() {
     for (var i = 0; i < a.length; i++) {
         var $this = a[i];
         var letter = $this.innerHTML;
-        letter = letter.trim();
+        letter = letter.trim(); 
         var str = '';
         var delay = 100;
         for (l = 0; l < letter.length; l++) {

@@ -1,31 +1,26 @@
 
 
-
-
-
-
-
 /* !REMINDER! I will seperate every css to its own section for better order. And with that it's easier to look at the code for you :)*/
 
-
-
-
-
-.container {
-    display: flex;
-    width: 500px;
-    margin-top: -35rem;
+.container{
+    position: absolute;
+    top: 25%; left: 50%;
+    transform: translate(-50%,-50%);
+    width: 520px; 
     padding: 30px;
-    margin-left: 38%;
+    border: 5px solid #2b2b2b;
+    border-radius: 15px;
+    overflow: hidden;
 }
 
-.container p {
-    text-align: center;
-    vertical-align: middle;
-    display: table-cell;
+.container p{
+    position: relative;
+    z-index: 2;
+    font-family: 'DM Mono', monospace;
     font-size: 38px;
     line-height: 39px;
-    font-family: 'DM Mono' , monospace;
+    text-align: center;
+    color: #fff;
 }
 
 #progression {
@@ -52,56 +47,37 @@
     box-sizing: border-box;
 }
 
-.container {
-    border: 5px solid rgb(255, 255, 255);
-    position: absolute;
-    transform: translate(-50%,-50%);
-    border-radius: 15px;
-    overflow: hidden;
-    display: inline-block;
-}
-
-.container:before {
+.container:before{
     content: "";
-    height: 700px;
+    position: absolute;
     width: 700px;
-    position: absolute;
+    height: 700px;
+    top: -125%; left: -19%;
+    transform: translate(-50%,-50%);
     background: conic-gradient(
-        #6552b9,
-        #2a2dd1,
-        #8400ff,
-        #9e27ff,
-        #3925f3,
-        #8f57a8,
-        #c300ff,
-        #2a2dd1,
-        #6552b9
-    );
-    left: -23%;
-    top: -90%;
-    animation: spin 2.5s infinite linear;
-    z-index: -1;
+    #e100ff, #823cf1, #6a4bf6,
+    #c300ff, #d633ff, #9011ff,
+    #3925f3, #e100ff );
+    border-radius: 50%;
+    z-index: 0S;
+    animation: spin 2s linear infinite;
 }
 
-@keyframes spin {
-    100%{
-        transform: rotate(-360deg);
-    }
-}
-.container:after {
+.container:after{
     content: "";
     position: absolute;
-    background-color: #141414;
-    height: 89%;
     width: 93%;
-    top: 5.5%;
-    left: 3.5%;
-    color: #fff;
-    display: grid;
-    place-items: center;
+    height: 89%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background: #141414;
     border-radius: 10px;
-    z-index: -1;
-    display: inline-block;
+    z-index: 1;
+}
+
+@keyframes spin{
+    to { transform: translate(-50%,-50%) rotate(360deg); }
 }
 
 .main-content img {
@@ -131,7 +107,7 @@
     position: absolute;
     background-color: rgb(19, 19, 19);
     z-index: 1;
-    box-shadow: inset 0 0 40px 5px #623EBB, 0 0 40px 5px #944db1;
+    box-shadow: inset 0 0 20px 5px #623EBB, 0 0 10px 5px #944db1;
     opacity: 0.85
   }
 
@@ -155,7 +131,7 @@
     border-radius: 17px;
     padding: 10px;
     display: flex;
-    font-family: 'Pixelify Sans';
+    font-family: 'DM Mono' , monospace;
     color: #fff;
     max-width: 900px;
     font-size: 28px;
@@ -218,6 +194,8 @@
 }
 @import url('https://fonts.googleapis.com/css?family=Montserrat');
 
+
+
 .card-container {
     position: relative;
 	background-color: #362354;
@@ -244,7 +222,7 @@
 }
 
 .card-container h2{
-    font-family: 'IBM Plex Mono';
+    font-family: 'DM Mono' , monospace;
     font-size: 20px;
     line-height: 10px;
     opacity: 75%;
@@ -345,19 +323,25 @@
     line-height: 28px;
 }
 
+.projects-frame {
+    width: 1200px;
+    max-width: 100%;
+    margin: 20px auto;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    padding: 0 10px;
+}
+
 .project-container {
-    position: relative;
-    display: flex;
-    flex-wrap: wrap; 
+    display: grid;
+    grid-template-columns: repeat(2, 550px);
+    grid-template-rows: repeat(2, 309px);
+    gap: 20px;
     justify-content: center;
-    align-items: center;
-    gap: 10px;
-    border-radius: 5px;
+    align-content: center;
+    margin: 0 auto;
+    width: max-content;
     z-index: 2;
-    height: max;
-    width: max;
-    margin: max;
-    margin-top: 20px;
 }
 
 .project-container span {
@@ -369,21 +353,21 @@
     height: 309px;
     width: 550px;
     background-color: #362354;
-	border-radius: 35px;
-	box-shadow: 0px 0px 50px 5px rgba(7, 7, 7, 0.55);
+    border-radius: 35px;
+    box-shadow: 0 0 50px 5px rgba(7, 7, 7, 0.55);
     opacity: 82%;
     z-index: 3;
     transition: 0.5s;
     cursor: pointer;
 }
 
-.project-container h1{
+.project-container h1 {
     font-family: 'Pixelify Sans';
     font-size: 35px;
     color: #0dffeb;
     text-align: center;
     line-height: 20px;
-    margin-top: 20px; 
+    margin-top: 20px;
 }
 
 .project-container h4 {
@@ -397,7 +381,7 @@
     font-family: 'IBM Plex Mono';
     color: #fff;
     font-size: 20px;
-    widtH: 500px;
+    width: 500px;
     text-align: center;
     margin-bottom: 60px;
     line-height: 30px;
@@ -409,28 +393,24 @@
     margin-top: -50px;
 }
 
+.project-container img.aegiscrypt {
+    width: 250px;
+    margin-top: -50px;
+}
+
 .project-container img.numberguesser {
     width: 360px;
-    position: relative;
     margin-top: -50px;
 }
 
 .numberguesser {
     border: 3px solid #0dffeb;
     border-radius: 29px;
-}
+}   
 
 .aegiscrypt {
     border: 3px solid #0dffeb;
     border-radius: 29px;
-}
-
-.project-container info {
-    margin-top: px;
-    margin-left: 580px;
-    width: 400px;
-    text-align: center;
-    margin-top: 30px;
 }
 
 .project-container text {
@@ -449,7 +429,7 @@
 
 .project-container span:hover {
     background-color: #732fac;
-    box-shadow: 0px 0px 20px #943adf;
+    box-shadow: 0 0 20px #943adf;
     border: 6px solid #943adf;
 }
 
