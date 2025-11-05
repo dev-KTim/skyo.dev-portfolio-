@@ -354,7 +354,6 @@
     width: 550px;
     background-color: #362354;
     border-radius: 35px;
-    box-shadow: 0 0 50px 5px rgba(7, 7, 7, 0.55);
     opacity: 82%;
     z-index: 3;
     transition: 0.5s;
@@ -723,4 +722,5 @@ hr.rounded {
 
 window.scrollTo {
     top: 500;
+
 }
