@@ -6,11 +6,11 @@ brand
 
 ## Users
 
-German hiring managers, trainers (Ausbilder) and recruiters evaluating Tim Kolesnikov (20, Kötz/Günzburg, Bavaria) for a software development apprenticeship (Ausbildung). They arrive from an application email or his GitHub profile, usually on a desktop at work, and decide within a minute whether this candidate is curious, self-taught and worth an interview. Secondary: fellow developers checking out his work.
+Developers, potential collaborators and future employers looking at Tim Kolesnikov (Kötz/Günzburg, Bavaria; since January 2026 web development at ADMIN INTELLIGENCE in Ulm). They arrive from his GitHub profile, a link in a message or a search, usually on a desktop, and decide within a minute whether this person builds real things and knows what he is doing. Secondary: people who just want to see how the site works.
 
 ## Product Purpose
 
-A personal portfolio at skyo.dev that proves, by existing, what the copy claims: that Tim taught himself HTML/CSS/JS and builds real things (C#/.NET/WPF projects). The site IS the work sample. Success = an interview invitation to application@skyo.dev.
+A personal portfolio at skyo.dev that proves, by existing, what the copy claims: that Tim taught himself HTML/CSS/JS/WebGL and builds real things (the ki-videos pipeline, C#/.NET/WPF projects, the company site at work). The site IS the work sample. Success = a message to application@skyo.dev about a project, a collaboration or a job.
 
 ## Brand Personality
 
@@ -26,7 +26,7 @@ Playful, self-aware, technically honest. Voice of a young developer who loves th
 ## Design Principles
 
 1. **The site is the CV.** Every effect must be implementable (and readable) in vanilla HTML/CSS/JS, because that's the claim being proven.
-2. **Pixel-synthwave terminal.** One committed aesthetic world: dark violet space, neon glow, pixel display type, mono body, mountain horizon. No genre drift.
+2. **Pixel-synthwave terminal in an underground city.** One committed aesthetic world: neon-lit tunnels, basements, brick halls and a rooftop, graffiti on the walls, pixel display type, mono body. No genre drift.
 3. **Code as content.** Terminal prompts as section grammar, C# snippets as project copy, a typing intro that makes typos and fixes them.
 4. **Crazy but smooth.** Depth, tilt and motion everywhere it delights, but only transforms/opacity, and everything respects prefers-reduced-motion.
 5. **Honest scale.** A 20-year-old applicant, not an agency. Personal copy, real screenshots, no invented metrics.

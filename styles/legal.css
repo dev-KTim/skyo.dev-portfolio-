@@ -1,5 +1,13 @@
 /* skyo.dev — shared style for the legal pages (Impressum, Datenschutz). */
 
+@font-face {
+  font-family: "Pixelify Sans";
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url("../fonts/pixelify-sans-var.woff2") format("woff2");
+}
+
 :root {
   --bg: #15111e;
   --bg-raised: #1e1730;

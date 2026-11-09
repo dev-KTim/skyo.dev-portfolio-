@@ -3,23 +3,44 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Tim Kolesnikov · skyo.dev</title>
-  <meta name="description" content="Portfolio of Tim Kolesnikov (skyo.dev) — self-taught developer from Günzburg, building with HTML, CSS, JavaScript, C# and .NET. Looking for a software development apprenticeship.">
+  <title>Tim Kolesnikov, skyo.dev</title>
+  <meta name="description" content="Portfolio of Tim Kolesnikov (skyo.dev): self-taught developer from Kötz near Günzburg, working at ADMIN INTELLIGENCE in Ulm. A night walk through an underground city, one place per chapter, rendered by a hand-written WebGL engine in vanilla HTML, CSS and JavaScript, no libraries.">
+  <meta name="theme-color" content="#15111e">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><rect width='16' height='16' fill='%2315111e'/><path d='M0 13 L5 6 L8 9 L11 4 L16 13 Z' fill='%23943adf'/><rect x='3' y='3' width='1' height='1' fill='%230dffeb'/><rect x='12' y='2' width='1' height='1' fill='%230dffeb'/></svg>">
 
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Pixelify+Sans:wght@400..700&display=swap" rel="stylesheet">
+  <!-- Fonts: self-hosted (no external requests) -->
+  <link rel="preload" href="fonts/pixelify-sans-var.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/dm-mono-400.woff2" as="font" type="font/woff2" crossorigin>
 
   <link rel="stylesheet" href="styles/main.css">
 </head>
 
 <body>
+  <!-- One canvas renders the whole 3D story, with a hand-written bloom pass.
+       A night walk through the city: tunnel (brain mural) -> basement (server rack)
+       -> wall of fame (one model per project) -> hall of tags -> metro line -> rooftop -->
+  <canvas id="gl" aria-hidden="true"></canvas>
+  <div class="scene-vignette" aria-hidden="true"></div>
+  <div class="grain" aria-hidden="true"></div>
+
+  <!-- Spray-paint edge filter for headlines and tags -->
+  <svg class="defs" aria-hidden="true" focusable="false">
+    <filter id="spray" x="-10%" y="-20%" width="120%" height="140%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="7" result="noise"/>
+      <feDisplacementMap in="SourceGraphic" in2="noise" scale="3.2" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+    <filter id="rough" x="-10%" y="-20%" width="120%" height="140%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="3" seed="3" result="noise"/>
+      <feDisplacementMap in="SourceGraphic" in2="noise" scale="6" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+  </svg>
+
+  <!-- Clickable neuron labels, projected from brain space each frame -->
+  <nav id="node-labels" aria-label="Repositories in the brain" hidden></nav>
+
   <!-- Boot sequence (first visit per session) -->
   <div id="boot" aria-hidden="true"><pre id="boot-text"></pre></div>
 
-  <div class="cursor-halo" aria-hidden="true"></div>
   <div class="scroll-progress" aria-hidden="true"></div>
   <a class="skip-link" href="#main">Skip to content</a>
 
@@ -27,13 +48,13 @@
   <header class="nav" id="nav">
     <a class="nav-logo" href="#hero">skyo.dev<span class="caret">_</span></a>
     <nav class="nav-links" aria-label="Sections">
-      <a href="#about">about</a>
-      <a href="#me">me</a>
+      <a href="#now">now</a>
       <a href="#projects">projects</a>
+      <a href="#skills">toolbox</a>
       <a href="#path">path</a>
       <a href="#contact">contact</a>
     </nav>
-    <a class="nav-github" href="https://github.com/dev-KTim" target="_blank" rel="noopener">GitHub ↗</a>
+    <a class="nav-github" href="https://github.com/dev-KTim" target="_blank" rel="noopener">GitHub</a>
     <button class="nav-burger" id="nav-burger" aria-expanded="false" aria-controls="menu" aria-label="Menu">
       <span></span><span></span><span></span>
     </button>
@@ -41,228 +62,173 @@
 
   <!-- Mobile menu -->
   <nav class="menu" id="menu" aria-label="Menu">
-    <a href="#about">about</a>
-    <a href="#me">me</a>
+    <a href="#now">now</a>
     <a href="#projects">projects</a>
+    <a href="#skills">toolbox</a>
     <a href="#path">path</a>
     <a href="#contact">contact</a>
-    <a href="https://github.com/dev-KTim" target="_blank" rel="noopener">github ↗</a>
+    <a href="https://github.com/dev-KTim" target="_blank" rel="noopener">github</a>
   </nav>
 
   <main id="main">
 
-    <!-- ================= HERO ================= -->
-    <section class="hero" id="hero">
-      <canvas id="stars" aria-hidden="true"></canvas>
-      <div class="hero-glow" aria-hidden="true"></div>
-
-      <div class="peaks" aria-hidden="true">
-        <svg viewBox="0 0 1920 320" preserveAspectRatio="none" style="height:clamp(160px,24vw,320px)">
-          <path d="M0 320 L0 180 L160 120 L320 200 L480 90 L640 170 L820 60 L1000 160 L1180 100 L1360 190 L1540 110 L1720 180 L1920 80 L1920 320 Z" fill="var(--peak-3)"/>
-        </svg>
-        <svg viewBox="0 0 1920 260" preserveAspectRatio="none" style="height:clamp(130px,19vw,260px)">
-          <path d="M0 260 L0 190 L140 140 L300 200 L460 120 L640 190 L800 110 L980 180 L1160 130 L1340 200 L1520 140 L1700 195 L1920 130 L1920 260 Z" fill="var(--peak-2)"/>
-        </svg>
-        <svg viewBox="0 0 1920 200" preserveAspectRatio="none" style="height:clamp(100px,15vw,200px)">
-          <path d="M0 200 L0 150 L180 110 L360 160 L540 100 L720 150 L900 90 L1080 145 L1260 105 L1440 155 L1620 115 L1800 150 L1920 110 L1920 200 Z" fill="var(--peak-1)"/>
-          <path d="M0 150 L180 110 L360 160 L540 100 L720 150 L900 90 L1080 145 L1260 105 L1440 155 L1620 115 L1800 150 L1920 110" fill="none" stroke="rgba(148,58,223,0.8)" stroke-width="2"/>
-        </svg>
-      </div>
-
-      <div class="grid-floor" aria-hidden="true"><div class="grid-plane"></div></div>
-
-      <div class="hero-inner">
-        <p class="prompt hero-prompt"><span class="prompt-cmd">./introduce --me</span></p>
-        <h1 class="hero-name" id="hero-name">
-          <span class="word">TIM</span>
-          <span class="word">KOLESNIKOV</span>
-        </h1>
-        <p class="hero-typed"><span id="typed"></span><span class="caret-block" aria-hidden="true"></span></p>
-        <div class="hero-cta">
-          <a class="btn btn-solid" data-magnetic href="#projects">view projects</a>
-          <a class="btn" data-magnetic href="#contact">contact me</a>
-        </div>
-      </div>
-
-      <a class="scroll-hint" href="#about" aria-label="Scroll down to the about section"><span></span></a>
-    </section>
-
-    <!-- ================= ABOUT ================= -->
-    <section class="section" id="about">
-      <header class="sec-head" data-reveal>
-        <p class="prompt"><span class="prompt-cmd">cat interview.log</span></p>
-        <h2>The interview, pre-answered</h2>
-      </header>
-
-      <div class="term-window" data-reveal data-tilt data-tilt-max="3">
-        <div class="term-bar">
-          <span class="dot"></span><span class="dot"></span><span class="dot"></span>
-          <span class="term-title">interview.log · 4 questions</span>
-        </div>
-        <div class="chat" id="chat">
-          <div class="msg msg-q">
-            <span class="typing" aria-hidden="true"><i></i><i></i><i></i></span>
-            <p>Why did you make this website?</p>
-          </div>
-          <div class="msg msg-a">
-            <span class="typing" aria-hidden="true"><i></i><i></i><i></i></span>
-            <p>To show what I've learned in HTML, CSS and JavaScript, and my motivation as well. Every line of it is hand-written.</p>
-          </div>
-          <div class="msg msg-q">
-            <span class="typing" aria-hidden="true"><i></i><i></i><i></i></span>
-            <p>Is this your first coding experience?</p>
-          </div>
-          <div class="msg msg-a">
-            <span class="typing" aria-hidden="true"><i></i><i></i><i></i></span>
-            <p>Not at all! I've completed many exercises and small projects to improve my skills. I started with Python to explore programming concepts, and now I'm focusing on C# to build practical applications.</p>
-          </div>
-          <div class="msg msg-q">
-            <span class="typing" aria-hidden="true"><i></i><i></i><i></i></span>
-            <p>What is your target at the moment?</p>
-          </div>
-          <div class="msg msg-a">
-            <span class="typing" aria-hidden="true"><i></i><i></i><i></i></span>
-            <p>To join your company as an apprentice, learn from experts and grow into a valuable team developer.</p>
-          </div>
-          <div class="msg msg-q">
-            <span class="typing" aria-hidden="true"><i></i><i></i><i></i></span>
-            <p>Do you have ongoing or completed projects?</p>
-          </div>
-          <div class="msg msg-a">
-            <span class="typing" aria-hidden="true"><i></i><i></i><i></i></span>
-            <p>Scroll down a bit, or hit the GitHub link to explore them directly.</p>
+    <!-- ================= HERO (pinned, 2 screens) ================= -->
+    <section class="chapter chapter-hero place-tunnel" id="hero" data-chapter="hero" style="--len: 2">
+      <div class="stage">
+        <div class="place-sign" aria-hidden="true"><span>tunnel entrance</span></div>
+        <div class="hero-inner" id="hero-inner">
+          <p class="prompt"><span class="prompt-cmd">./introduce --me</span></p>
+          <h1 class="hero-name spray" id="hero-name">
+            <span class="word">TIM</span>
+            <span class="word">KOLESNIKOV</span>
+          </h1>
+          <p class="hero-typed"><span id="typed"></span><span class="caret-block" aria-hidden="true"></span></p>
+          <div class="hero-cta">
+            <a class="btn btn-solid" data-magnetic href="#projects">view projects</a>
+            <a class="btn" data-magnetic href="#contact">contact me</a>
           </div>
         </div>
+        <p class="hero-hint" id="hero-hint" aria-hidden="true">the piece on the wall: every neuron is a repository. click one.</p>
       </div>
     </section>
 
-    <!-- ================= ME ================= -->
-    <section class="section" id="me">
-      <header class="sec-head" data-reveal>
-        <p class="prompt"><span class="prompt-cmd">cat me/tim.json</span></p>
-        <h2>Player one</h2>
-      </header>
-
-      <div class="me-grid">
-        <div class="profile-card" data-tilt data-tilt-max="10" data-reveal>
-          <div class="card-depth">
-            <img class="portrait" src="imgs/Me-portait.jpg" alt="Portrait of Tim Kolesnikov">
-            <h3>Tim K.</h3>
-            <span class="tag">&lt;from class="guenzburg"&gt;&lt;/from&gt;</span>
-            <p class="bio">20 y/o PC enthusiast who wants to become a good software developer.</p>
+    <!-- ================= NOW (pinned, 2 screens) ================= -->
+    <section class="chapter place-basement" id="now" data-chapter="now" style="--len: 2.2">
+      <div class="stage">
+        <div class="place-sign" aria-hidden="true"><span>basement, server room</span></div>
+        <div class="split">
+          <div class="split-copy" data-stagger>
+            <h2 class="split-title spray"><span class="line">Days in a server room.</span><span class="line">Nights in WebGL.</span></h2>
+            <p class="lede">Since January 2026 I work at <a href="https://www.admin-intelligence.de" target="_blank" rel="noopener">ADMIN INTELLIGENCE</a> in Ulm, a company that runs Linux servers and open-source infrastructure for businesses. I build and maintain the company website: web components, SEO, structured data, team and job pages.</p>
+            <p class="lede">Before that I taught myself everything on this page from Kötz near Günzburg, Bavaria. Everything here is still hand-written: the particle engine, the models, the bloom, the scroll choreography. No frameworks, no libraries.</p>
+            <dl class="facts">
+              <div><dt>Role</dt><dd>Web development at ADMIN INTELLIGENCE</dd></div>
+              <div><dt>Where</dt><dd>Ulm and Kötz, Bavaria</dd></div>
+              <div><dt>Side project</dt><dd>ki-videos, an AI short-video pipeline</dd></div>
+            </dl>
           </div>
-        </div>
-
-        <div class="me-facts" data-reveal>
-          <h3>Hobbies</h3>
-          <ul class="chips">
-            <li>Programming</li>
-            <li>Mountain biking</li>
-            <li>Music</li>
-            <li>Being outside</li>
-          </ul>
-          <h3>Soft skills</h3>
-          <p>I'm patient, considerate and positive: good at finding solutions and adding value to any team.</p>
-          <h3>Currently</h3>
-          <p>Focused on C#, .NET and WPF to create better desktop applications.</p>
-        </div>
-      </div>
-
-      <div class="toolbox">
-        <p class="prompt"><span class="prompt-cmd">ls toolbox/</span></p>
-        <div class="marquee">
-          <div class="marquee-track">
-            <ul class="marquee-group">
-              <li style="--c:#0dffeb">HTML</li>
-              <li style="--c:#943adf">CSS</li>
-              <li style="--c:#0dffeb">JavaScript</li>
-              <li style="--c:#e100ff">C#</li>
-              <li style="--c:#6a4bf6">.NET</li>
-              <li style="--c:#0dffeb">WPF</li>
-            </ul>
-          </div>
-        </div>
-        <div class="marquee marquee-rev">
-          <div class="marquee-track">
-            <ul class="marquee-group">
-              <li style="--c:#6a4bf6">Python</li>
-              <li style="--c:#0dffeb">Git &amp; GitHub</li>
-              <li style="--c:#943adf">Visual Studio</li>
-              <li style="--c:#e100ff">Blender</li>
-              <li style="--c:#0dffeb">Cubase</li>
-              <li style="--c:#6a4bf6">MS Office</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ================= PROJECTS ================= -->
-    <section class="section section-wide" id="projects">
-      <header class="sec-head" data-reveal>
-        <p class="prompt"><span class="prompt-cmd">ls projects/ --sort=pride</span></p>
-        <h2>Things I've built</h2>
-      </header>
-
-      <div class="projects-grid">
-        <a class="project-card proj-feature" data-tilt data-tilt-max="4" data-reveal
-           href="https://github.com/dev-KTim/skyo.dev-portfolio-" target="_blank" rel="noopener">
-          <div class="card-depth">
-            <div>
-              <span class="proj-meta">completed · still gets updates</span>
-              <h3>Website Portfolio</h3>
-              <p>This site. Hand-written in vanilla HTML, CSS and JavaScript — including the 3D tilt engine, the starfield and the typing intro you just watched.</p>
-              <span class="proj-arrow">view source →</span>
-            </div>
-            <div class="code-block">
-<pre><code><span class="kw">void</span> Main()
-{
-    <span class="kw">var</span> project = <span class="kw">new</span> <span class="type">Project</span>(<span class="str">"Website Portfolio"</span>);
-    project.SetStatus(<span class="str">"v2.0, redesigned"</span>);
-    project.TechUsed(<span class="kw">new</span>[] { <span class="str">"HTML"</span>, <span class="str">"CSS"</span>, <span class="str">"JS"</span> });
-    project.SourceCode(<span class="str">"github.com/dev-KTim"</span>);
-}</code></pre>
+          <div class="split-stage" id="now-stage" aria-hidden="true">
+            <div class="stage-frame">
+              <span class="stage-corner tl"></span><span class="stage-corner tr"></span>
+              <span class="stage-corner bl"></span><span class="stage-corner br"></span>
+              <span class="stage-readout"><span id="now-readout">rack01.ulm</span><span id="now-readout-2">all systems nominal</span></span>
             </div>
           </div>
-        </a>
+        </div>
+      </div>
+    </section>
 
-        <a class="project-card" data-tilt data-reveal
-           href="https://github.com/dev-KTim/AegisCrypt.FileEncryptor" target="_blank" rel="noopener">
-          <div class="card-depth">
-            <h3>AegisCrypt</h3>
-            <p>WPF tool for encrypting and decrypting files. I plan to implement my own algorithm.</p>
-            <img class="shot" src="imgs/Aegis-Crypt.png" alt="Screenshot of the AegisCrypt file encryptor UI">
-            <span class="proj-arrow">view source →</span>
-          </div>
-        </a>
+    <!-- ================= PROJECTS (pinned, horizontal pan) ================= -->
+    <section class="chapter chapter-projects place-wall" id="projects" data-chapter="projects" style="--len: 7.5">
+      <div class="stage">
+        <div class="place-sign" aria-hidden="true"><span>wall of fame</span></div>
+        <header class="proj-head">
+          <h2 class="spray">Things I've built</h2>
+          <p class="sec-sub">Walk along the wall. Each piece rebuilds itself from the same pool of particles.</p>
+        </header>
 
-        <a class="project-card" data-tilt data-reveal
-           href="https://github.com/dev-KTim/Number-Guesser-cs" target="_blank" rel="noopener">
-          <div class="card-depth">
-            <h3>Number-Guesser-cs</h3>
-            <p>A fun little game I made with C# in the console.</p>
-            <img class="shot" src="imgs/numberguesser-cs.png" alt="Screenshot of the Number Guesser console game">
-            <span class="proj-arrow">view source →</span>
+        <!-- The fixed canvas renders the active model inside this frame -->
+        <div class="proj-stage" id="proj-stage" aria-hidden="true">
+          <div class="stage-frame">
+            <span class="stage-corner tl"></span><span class="stage-corner tr"></span>
+            <span class="stage-corner bl"></span><span class="stage-corner br"></span>
+            <span class="stage-readout"><span id="stage-title">ki-videos</span><span id="stage-tech">TypeScript, Remotion, Three.js</span></span>
           </div>
-        </a>
+        </div>
 
-        <a class="project-card" data-tilt data-reveal
-           href="https://github.com/dev-KTim/YouTube-Copy" target="_blank" rel="noopener">
-          <div class="card-depth">
-            <h3>YouTube-Copy</h3>
-            <p>My first HTML/CSS project ever. It's basic, but what I learned there helped me build this site.</p>
-            <div class="play-glyph" aria-hidden="true"></div>
-            <span class="proj-arrow">view source →</span>
+        <div class="track-clip">
+          <div class="track" id="track">
+
+            <article class="proj-card" id="p-kivideos" data-model="phone"
+                     data-title="ki-videos" data-tech="TypeScript, Remotion, Three.js">
+              <p class="proj-meta">flagship, in progress, private repo</p>
+              <h3>ki-videos</h3>
+              <p>A pipeline that turns a script into a finished 9:16 video: Remotion and Three.js render 3D scenes, Gemini speaks the voiceover and returns word timings, a deterministic effects library adds 24 visual effects and a sound database, and a QA step checks loudness, black frames and format before Playwright posts it to TikTok, Shorts and Reels.</p>
+              <ul class="chips proj-chips">
+                <li>TypeScript</li><li>Remotion</li><li>Three.js</li><li>Python</li><li>Playwright</li>
+              </ul>
+              <span class="proj-private"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>Private for now. Ask me for a walkthrough.</span>
+            </article>
+
+            <article class="proj-card" id="p-portfolio" data-model="peaks"
+                     data-title="skyo.dev-portfolio" data-tech="HTML, CSS, JavaScript, WebGL">
+              <p class="proj-meta">this site, version 4</p>
+              <h3>skyo.dev</h3>
+              <p>Everything you are looking at. One WebGL particle pool that morphs between a brain, a server rack, six project models, a git graph and a synthwave horizon, with a hand-written bloom pass and scroll-pinned chapters. No libraries, no build step.</p>
+              <ul class="chips proj-chips">
+                <li>HTML</li><li>CSS</li><li>JavaScript</li><li>WebGL</li><li>GLSL</li>
+              </ul>
+              <a class="proj-link" href="https://github.com/dev-KTim/skyo.dev-portfolio-" target="_blank" rel="noopener">view source</a>
+            </article>
+
+            <article class="proj-card" id="p-aegiscrypt" data-model="lock"
+                     data-title="AegisCrypt.FileEncryptor" data-tech="C#, WPF, .NET">
+              <p class="proj-meta">biggest C# project</p>
+              <h3>AegisCrypt</h3>
+              <p>A WPF desktop tool for encrypting and decrypting files, with a clean dark UI and drag-and-drop. The project where I learned MVVM, async file IO and how much work a real desktop app is.</p>
+              <img class="shot" src="imgs/Aegis-Crypt.png" alt="Screenshot of the AegisCrypt file encryptor window" loading="lazy" width="599" height="404">
+              <ul class="chips proj-chips">
+                <li>C#</li><li>WPF</li><li>.NET</li>
+              </ul>
+              <a class="proj-link" href="https://github.com/dev-KTim/AegisCrypt.FileEncryptor" target="_blank" rel="noopener">view source</a>
+            </article>
+
+            <article class="proj-card" id="p-cweather" data-model="cloud"
+                     data-title="C-weather" data-tech="C#, WPF, REST">
+              <p class="proj-meta">first contact with a real API</p>
+              <h3>C-weather</h3>
+              <p>My first WPF program that talks to a live weather API. Small, but it taught me HTTP requests, JSON deserialization and async in C#.</p>
+              <ul class="chips proj-chips">
+                <li>C#</li><li>WPF</li><li>REST</li><li>JSON</li>
+              </ul>
+              <a class="proj-link" href="https://github.com/dev-KTim/C-weather" target="_blank" rel="noopener">view source</a>
+            </article>
+
+            <article class="proj-card" id="p-numberguesser" data-model="die"
+                     data-title="Number-Guesser-cs" data-tech="C#, console">
+              <p class="proj-meta">small game, big lessons</p>
+              <h3>Number-Guesser</h3>
+              <p>A console game in C#: guess the number, get hints, keep score. Loops, input validation and the first time my code did what I wanted on the first run.</p>
+              <img class="shot" src="imgs/numberguesser-cs.png" alt="Screenshot of the Number Guesser console game" loading="lazy" width="586" height="324">
+              <ul class="chips proj-chips">
+                <li>C#</li><li>console</li>
+              </ul>
+              <a class="proj-link" href="https://github.com/dev-KTim/Number-Guesser-cs" target="_blank" rel="noopener">view source</a>
+            </article>
+
+            <article class="proj-card" id="p-youtubecopy" data-model="play"
+                     data-title="YouTube-Copy" data-tech="HTML, CSS">
+              <p class="proj-meta">where it all started</p>
+              <h3>YouTube-Copy</h3>
+              <p>My first HTML and CSS project ever: a static rebuild of the YouTube start page. Basic, but what I learned there is the foundation of this site.</p>
+              <ul class="chips proj-chips">
+                <li>HTML</li><li>CSS</li>
+              </ul>
+              <a class="proj-link" href="https://github.com/dev-KTim/YouTube-Copy" target="_blank" rel="noopener">view source</a>
+            </article>
+
           </div>
-        </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= TOOLBOX (pinned, 1.6 screens) ================= -->
+    <section class="chapter place-hall" id="skills" data-chapter="skills" style="--len: 2.8">
+      <div class="stage stage-center">
+        <div class="place-sign" aria-hidden="true"><span>hall of tags</span></div>
+        <h2 class="center-title spray">Toolbox</h2>
+        <p class="sec-sub">Every tool I use, sprayed on the wall as you scroll. Press and hold to add your own.</p>
+        <div class="tagwall-wrap">
+          <canvas id="tagwall" aria-label="Skills: JavaScript, TypeScript, HTML, CSS, WebGL, GLSL, Three.js, Remotion, Node.js, Python, Playwright, C#, .NET, WPF, Git, Linux, SEO, Blender"></canvas>
+        </div>
       </div>
     </section>
 
     <!-- ================= PATH ================= -->
-    <section class="section" id="path">
+    <section class="section place-metro" id="path" data-chapter="path">
+      <div class="place-sign" aria-hidden="true" data-reveal><span>line 1, all stops</span></div>
       <header class="sec-head" data-reveal>
-        <p class="prompt"><span class="prompt-cmd">git log --reverse</span></p>
-        <h2>Progression</h2>
+        <h2 class="spray">Stops so far</h2>
       </header>
 
       <div class="timeline">
@@ -271,66 +237,72 @@
         <div class="tl-item">
           <span class="tl-node" aria-hidden="true"></span>
           <div class="tl-card" data-reveal>
-            <h3>When it began..</h3>
-            <p>My interest in IT started when I downloaded tools and projects from GitHub. I looked into the source code to understand how software works behind the scenes.</p>
+            <h3>Reading other people's code</h3>
+            <p>It started with downloading tools from GitHub and opening the source to understand how software works behind the scenes.</p>
           </div>
         </div>
 
         <div class="tl-item">
           <span class="tl-node" aria-hidden="true"></span>
           <div class="tl-card" data-reveal>
-            <h3>Writing first code..</h3>
-            <p>I began with Python just to try it out. Small results motivated me to continue. Tutorials and music production helped me understand logic and creativity.</p>
+            <h3>Python, then HTML and CSS</h3>
+            <p>First scripts in Python to see if I liked it. I did. Then the web: the YouTube rebuild and the first version of this site.</p>
           </div>
         </div>
 
         <div class="tl-item">
           <span class="tl-node" aria-hidden="true"></span>
           <div class="tl-card" data-reveal>
-            <h3>Improving..</h3>
-            <p>Later I started coding with C# after learning HTML/CSS on my own. I learned to write cleaner code, solve problems and debug errors by myself.</p>
+            <h3>C#, .NET and WPF</h3>
+            <p>Desktop applications with real UI: C-weather talked to an API, AegisCrypt became the biggest thing I had built. Cleaner code, debugging on my own.</p>
           </div>
         </div>
 
         <div class="tl-item">
           <span class="tl-node" aria-hidden="true"></span>
           <div class="tl-card" data-reveal>
-            <h3>Growing further..</h3>
-            <p>I keep building small projects to improve step by step. Right now I focus on C#, .NET and WPF to create better applications.</p>
+            <h3>ADMIN INTELLIGENCE, Ulm</h3>
+            <p>January 2026: first job in IT. Web components, SEO and structured data for the company site of a Linux systems house. Learning what production means.</p>
           </div>
         </div>
 
         <div class="tl-item">
           <span class="tl-node" aria-hidden="true"></span>
           <div class="tl-card" data-reveal>
-            <h3>You need an employee?..</h3>
-            <p>I'm motivated to start my career in IT. I'm patient, calm and strong in logical thinking. I enjoy teamwork, solving problems and creating useful software. I'd be happy to talk in person. :)</p>
-            <a class="btn" data-magnetic href="#contact">let's talk</a>
+            <h3>ki-videos</h3>
+            <p>November 2026: an end-to-end video pipeline in TypeScript with Remotion, Three.js and Python. The most code I have ever written for one idea.</p>
+          </div>
+        </div>
+
+        <div class="tl-item">
+          <span class="tl-node" aria-hidden="true"></span>
+          <div class="tl-card" data-reveal>
+            <h3>Next</h3>
+            <p>Deeper into 3D on the web and into shaders. If you are building something in that direction, I would like to hear about it.</p>
           </div>
         </div>
       </div>
     </section>
 
     <!-- ================= CONTACT ================= -->
-    <section class="section" id="contact">
-      <div class="contact-horizon" aria-hidden="true"></div>
+    <section class="section place-rooftop" id="contact" data-chapter="contact">
+      <div class="place-sign" aria-hidden="true" data-reveal><span>rooftop</span></div>
       <header class="sec-head" data-reveal>
-        <p class="prompt"><span class="prompt-cmd">ping tim --now</span></p>
-        <h2>Let's talk</h2>
+        <h2 class="spray">Let's talk</h2>
       </header>
 
-      <p class="contact-lede" data-reveal>One e-mail away from an apprentice who already loves the craft.</p>
+      <p class="contact-lede" data-reveal>Projects, collaborations or just a question about how this site works.</p>
 
       <a class="email-link" data-scramble data-reveal href="mailto:application@skyo.dev">application@skyo.dev</a>
 
       <div class="contact-row" data-reveal>
         <a class="github-card" data-tilt data-tilt-max="10" href="https://github.com/dev-KTim" target="_blank" rel="noopener">
-          <img src="icons/githubicon.png" alt="">
-          <span>dev-KTim</span>
+          <img src="icons/githubicon.png" alt="" width="28" height="28">
+          <span>github.com/dev-KTim</span>
         </a>
       </div>
 
-      <p class="build-line" data-reveal>Build <b>V2.0</b> · 06/26 · made with vanilla HTML, CSS &amp; JavaScript. No frameworks, no cookies, no tracking.</p>
+      <p class="build-line" data-reveal>Made with vanilla HTML, CSS and JavaScript. No frameworks, no libraries, no cookies, no tracking, no external requests.</p>
     </section>
   </main>
 
@@ -339,23 +311,34 @@
     <div class="wrap">
       <div>© <span id="year"></span> Tim Kolesnikov</div>
       <nav>
-        <a href="/impressum.html">Impressum</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+        <a href="/impressum.html">Impressum</a>
         <a href="/privacy-policy.html">Datenschutzerklärung</a>
       </nav>
     </div>
   </footer>
+
+  <!-- Terminal HUD: one fixed prompt that follows the chapters -->
+  <div class="hud" id="hud" aria-hidden="true">
+    <span class="hud-prompt">tim@skyo:~/<span id="hud-path">hero</span>$</span>
+    <span class="hud-bar"><i id="hud-fill"></i></span>
+  </div>
 
   <!-- Privacy banner -->
   <div id="privacy-banner" role="region" aria-label="Datenschutzhinweis" hidden>
     <div class="wrap">
       <span>
         <strong>Datenschutzhinweis:</strong> Diese Website setzt <u>keine Cookies</u>, verwendet <u>kein Tracking</u> und speichert <u>keine personenbezogenen Daten</u>.
-        Schriftarten werden von Google Fonts geladen. <a href="/privacy-policy.html">Mehr</a>.
+        Schriftarten und alle Inhalte werden lokal geladen. <a href="/privacy-policy.html">Mehr</a>.
       </span>
       <button id="privacy-banner-ok">Okay</button>
     </div>
   </div>
 
+  <script src="Javascript/math3d.js" defer></script>
+  <script src="Javascript/engine.js" defer></script>
+  <script src="Javascript/scenes.js" defer></script>
+  <script src="Javascript/director.js" defer></script>
+  <script src="Javascript/ui.js" defer></script>
   <script src="Javascript/main.js" defer></script>
 </body>
 </html>
